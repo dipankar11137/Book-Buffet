@@ -2,8 +2,8 @@ import React from "react";
 
 const Card = () => {
   return (
-    <div className="grid grid-cols-2 gap-3">
-      <div className="card card-side shadow-2xl bg-cyan-200">
+    <div className="grid grid-cols-2 gap-x-6 gap-y-4 mt-10">
+      <div className="card card-side shadow-2xl bg-cyan-200 hover:cursor-pointer hover:bg-pink-200 hover:shadow-xl">
         <div className="card-body ">
           <h2 className="card-title">Programming er Choddogusti</h2>
           <p>BY JHANKAR MAHBUB</p>
@@ -17,7 +17,7 @@ const Card = () => {
           />
         </figure>
       </div>
-      <div className="card card-side shadow-2xl bg-pink-200">
+      <div className="card card-side shadow-2xl bg-pink-200 hover:cursor-pointer hover:bg-cyan-200 hover:shadow-xl">
         <figure>
           <img
             className="h-40 w-32 rounded-xl pl-1"
@@ -31,7 +31,7 @@ const Card = () => {
           <p>Published: 2022</p>
         </div>
       </div>
-      <div className="card card-side shadow-2xl bg-cyan-100">
+      <div className="card card-side shadow-2xl bg-cyan-100 hover:cursor-pointer hover:bg-pink-100 hover:shadow-xl">
         <div className="card-body ">
           <h2 className="card-title">Nurani Quran Sharif</h2>
           <p>
@@ -46,7 +46,7 @@ const Card = () => {
           />
         </figure>
       </div>
-      <div className="card card-side shadow-2xl bg-pink-100">
+      <div className="card card-side shadow-2xl bg-pink-100 hover:cursor-pointer hover:bg-cyan-100 hover:shadow-xl">
         <figure>
           <img
             className="h-40 w-40 rounded-xl pr-1"
