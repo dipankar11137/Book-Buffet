@@ -124,57 +124,58 @@ const Navbar = () => {
             </span>
           </div>
         </label>
-        {user ? (
-          <div className="dropdown dropdown-end  mr-5">
-            <label tabindex="0" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                {/* <img src="https://placeimg.com/80/80/people" alt="" /> */}
-                {user.photoURL ? (
-                  <img src={user?.photoURL} alt="" />
-                ) : (
-                  // <h1>D</h1>
-                  <img
-                    src="https://cdn.imgbin.com/6/25/24/imgbin-user-profile-computer-icons-user-interface-mystique-aBhn3R8cmqmP4ECky4DA3V88y.jpg"
-                    alt=""
-                  />
-                )}
-              </div>
-            </label>
-            <ul
-              tabindex="0"
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
-            >
-              <li>
-                <Link to="/">Profile</Link>
-              </li>
-              <li>
-                <Link to="/">Settings</Link>
-              </li>
-
-              <li className=" font-bold">
-                {user ? (
-                  <button
-                    className=" font-bold text-orange-500"
-                    onClick={logout}
-                  >
-                    Sign Out
-                  </button>
-                ) : (
-                  <Link to="/login">Login</Link>
-                )}
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <ul className="mr-5">
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </ul>
-        )}
+        {/* aii ... */}
       </div>
     </div>
   );
 };
 
 export default Navbar;
+// {user ? (
+//   <div className="dropdown dropdown-end  mr-5">
+//     <label tabindex="0" className="btn btn-ghost btn-circle avatar">
+//       <div className="w-10 rounded-full">
+//         {/* <img src="https://placeimg.com/80/80/people" alt="" /> */}
+//         {user.photoURL ? (
+//           <img src={user?.photoURL} alt="" />
+//         ) : (
+//           // <h1>D</h1>
+//           <img
+//             src="https://cdn.imgbin.com/6/25/24/imgbin-user-profile-computer-icons-user-interface-mystique-aBhn3R8cmqmP4ECky4DA3V88y.jpg"
+//             alt=""
+//           />
+//         )}
+//       </div>
+//     </label>
+//     <ul
+//       tabindex="0"
+//       className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40 dark:bg-gray-800 dark:border-gray-700 hover:dark:bg-purple-900"
+//     >
+//       <li>
+//         <Link to="/">Profile</Link>
+//       </li>
+//       <li>
+//         <Link to="/">Settings</Link>
+//       </li>
+
+//       <li className=" font-bold">
+//         {user ? (
+//           <button
+//             className=" font-bold text-orange-500"
+//             onClick={logout}
+//           >
+//             Sign Out
+//           </button>
+//         ) : (
+//           <Link to="/login">Login</Link>
+//         )}
+//       </li>
+//     </ul>
+//   </div>
+// ) : (
+//   <ul className="mr-5">
+//     <li>
+//       <Link to="/login">Login</Link>
+//     </li>
+//   </ul>
+// )}
