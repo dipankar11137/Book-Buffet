@@ -1,22 +1,21 @@
 import React from "react";
+import "../../../../CSS/NovelStyle.css";
 
 const Novel = () => {
   return (
-    <div
-      style={{ height: "450px", width: "296px" }}
-      className=" bg-slate-100 rounded-xl shadow-2xl "
-    >
+    <div style={{ height: "450px", width: "296px" }} class="container bg-white">
+      {/* <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%"> */}
+      <img
+        className="image "
+        src="https://benthambooks.com/ebook-images/sample-files-images/9789377871499/9789377871499-1.jpg"
+        alt=""
+      />
       <div>
-        <img
-          className="h-72"
-          src="https://thumbs.dreamstime.com/b/holy-islamic-books-15877301.jpg"
-          alt=""
-        />
+        <h1>hello ki</h1>
       </div>
-      <div className="p-3 mt-5">
-        <h1>Islamic Book</h1>
-        <p>Price</p>
-        <p>Publish Date</p>
+      <div class="middle">
+        {/* <div class="text">John Doe</div> */}
+        <button className="btn">Buy</button>
       </div>
     </div>
   );
