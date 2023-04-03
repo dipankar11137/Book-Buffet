@@ -5,6 +5,8 @@ import IslamicBooks from "../HomeSection/IslamicBook/IslamicBooks";
 import Novels from "../HomeSection/Novel/Novels";
 import Footer from "../../../Share/Footer";
 import Test from "../../Test/Test";
+import OurBooks from "../HomeSection/OurBooks/OurBooks";
+import Contact from "../HomeSection/Contact/Contact";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <Novels />
       <FirstSection />
       <IslamicBooks />
+      <OurBooks />
+      <Contact />
       <Footer />
     </div>
   );
