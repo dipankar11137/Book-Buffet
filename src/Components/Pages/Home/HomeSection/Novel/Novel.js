@@ -20,9 +20,14 @@ const Novel = () => {
         <p>Condition : New</p>
         <p>Publication Date</p>
       </div>
-      <div class="middle flex justify-between ">
-        <button className="btn mr-20"> Book</button>
-        <button className="btn">Buy</button>
+      <div class="middle  ">
+        <button className="w-full bg-green-400 p-3 rounded-lg  uppercase font-semibold hover:bg-green-800 hover:text-white ">
+          {" "}
+          Book
+        </button>
+        <button className="w-full bg-sky-600 p-3 rounded-lg text-white uppercase font-bold hover:bg-sky-500 mt-4">
+          Buy
+        </button>
       </div>
     </div>
   );

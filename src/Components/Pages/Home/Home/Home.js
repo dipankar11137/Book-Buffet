@@ -11,9 +11,9 @@ const Home = () => {
     <div className="">
       <Banner />
       <Test />
+      <Novels />
       <FirstSection />
       <IslamicBooks />
-      <Novels />
       <Footer />
     </div>
   );

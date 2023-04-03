@@ -12,7 +12,7 @@ const Novels = () => {
   return (
     <div className="mt-20 mx-20 shadow-xl p-3">
       <div className=" rounded-xl">
-        <h1 className="text-4xl font-bold ">Novel Books {products.length}</h1>
+        <h1 className="text-4xl font-bold ">Novel Books</h1>
         <div className="py-4 grid grid-cols-5 gap-y-8">
           {products.map((product) => (
             <Novel key={product._id} product={product}></Novel>
