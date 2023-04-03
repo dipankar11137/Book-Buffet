@@ -31,6 +31,9 @@
 .container:hover .image {
   opacity: 0.3;
 }
+.container:hover .testStyle {
+  opacity: 0.3;
+}
 
 .container:hover .middle {
   opacity: 1;
