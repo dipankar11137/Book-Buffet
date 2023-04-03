@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import FirstSection from "../FirstSection/FirstSection";
-import IslamicBooks from "../IslamicBook/IslamicBooks";
+import FirstSection from "../HomeSection/FirstSection/FirstSection";
+import IslamicBooks from "../HomeSection/IslamicBook/IslamicBooks";
 
 const Home = () => {
   return (
