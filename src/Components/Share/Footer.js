@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 dark:bg-gray-800 dark:border-gray-700  text-white  rounded">
-      <div className="grid grid-flow-col gap-4">
+    <footer className="footer footer-center p-10 dark:bg-gray-800 dark:border-gray-700  text-white  rounded mt-20">
+      {/* <div className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
@@ -45,10 +45,9 @@ const Footer = () => {
             </svg>
           </a>
         </div>
-      </div>
+      </div> */}
       <div>
-        <p>Copyright © 2022 </p>
-        <p>Develop By Dipankar Halder</p>
+        <p>Copyright © 2023 </p>
       </div>
     </footer>
   );

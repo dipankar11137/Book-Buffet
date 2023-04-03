@@ -3,14 +3,16 @@ import Banner from "../Banner/Banner";
 import FirstSection from "../HomeSection/FirstSection/FirstSection";
 import IslamicBooks from "../HomeSection/IslamicBook/IslamicBooks";
 import Novels from "../HomeSection/Novel/Novels";
+import Footer from "../../../Share/Footer";
 
 const Home = () => {
   return (
-    <div className="pb-20">
+    <div className="">
       <Banner />
       <FirstSection />
       <IslamicBooks />
       <Novels />
+      <Footer />
     </div>
   );
 };
