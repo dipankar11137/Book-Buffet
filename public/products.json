@@ -67,6 +67,14 @@
     "_id": 9,
     "name": "Kaluka",
     "price": "96",
+    "status": "old",
+    "pDate": "12-05-23",
+    "img": "https://t3.ftcdn.net/jpg/04/61/48/90/360_F_461489085_gvKVCQhyl30MHDi5X1jkRW0e1XV840rd.jpg"
+  },
+  {
+    "_id": 10,
+    "name": "Kaluka",
+    "price": "96",
     "status": "new",
     "pDate": "12-05-23",
     "img": "https://t3.ftcdn.net/jpg/04/61/48/90/360_F_461489085_gvKVCQhyl30MHDi5X1jkRW0e1XV840rd.jpg"

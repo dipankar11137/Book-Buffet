@@ -7,7 +7,7 @@ const IslamicBook = () => {
       className=" bg-slate-100 rounded-xl shadow-2xl hover:bg-pink-100 hover:shadow-inner"
     >
       <div className="indicator">
-        <span className="indicator-item badge badge-danger">new</span>
+        <span className="indicator-item badge badge-danger">old</span>
         <img
           className="h-72"
           src="https://thumbs.dreamstime.com/b/holy-islamic-books-15877301.jpg"

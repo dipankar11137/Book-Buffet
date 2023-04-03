@@ -24,8 +24,8 @@ const OurBook = () => {
   };
   return (
     <div className=" ">
-      <div className=" pl-5 rounded-lg ">
-        <Carousel className="rounded-lg pl-3" responsive={responsive}>
+      <div className=" pl-6 rounded-lg ">
+        <Carousel className="rounded-lg pl-6" responsive={responsive}>
           <Link to="/">
             <div className="card w-56 bg-base-100 text-black  mt-2 mb-3  shadow-2xl  hover:shadow-lg ">
               <figure>

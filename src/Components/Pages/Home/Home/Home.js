@@ -7,6 +7,7 @@ import Footer from "../../../Share/Footer";
 import Test from "../../Test/Test";
 import OurBooks from "../HomeSection/OurBooks/OurBooks";
 import Contact from "../HomeSection/Contact/Contact";
+import RecommendedBooks from "../HomeSection/Recommended Books/RecommendedBooks";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <FirstSection />
       <IslamicBooks />
       <OurBooks />
+      <RecommendedBooks />
       <Contact />
       <Footer />
     </div>

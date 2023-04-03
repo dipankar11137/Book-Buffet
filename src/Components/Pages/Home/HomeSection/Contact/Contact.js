@@ -8,7 +8,7 @@ const Contact = () => {
       <div className=" mx-20 grid grid-cols-3 ">
         <div className="p-4 col-span-2">
           <h1 className="py-4 text-4xl font-bold">
-            Can’t find your desired service? Let us know 24/7 in 16516.
+            Can’t find your desired service? Let us know 24/6 in 16216.
           </h1>
           <div className="flex">
             <button className="buttonStyle py-4 px-8 hover:bg-pink-600 hover:text-white text-3xl rounded-xl border-4 border-pink-600 ml-72 mt-5">
