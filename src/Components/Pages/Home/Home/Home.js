@@ -8,6 +8,7 @@ import Test from "../../Test/Test";
 import OurBooks from "../HomeSection/OurBooks/OurBooks";
 import Contact from "../HomeSection/Contact/Contact";
 import RecommendedBooks from "../HomeSection/Recommended Books/RecommendedBooks";
+import Button from "../HomeSection/Button/Button";
 
 const Home = () => {
   return (

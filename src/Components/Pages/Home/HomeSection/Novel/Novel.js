@@ -21,11 +21,11 @@ const Novel = () => {
         <p>Publication Date</p>
       </div>
       <div class="middle  ">
-        <button className="w-full bg-green-400 p-3 rounded-lg  uppercase font-semibold hover:bg-green-800 hover:text-white ">
+        <button className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   ">
           {" "}
           Book
         </button>
-        <button className="w-full bg-sky-600 p-3 rounded-lg text-white uppercase font-bold hover:bg-sky-500 mt-4">
+        <button className="w-full bg-slate-200 p-3 rounded-lg  uppercase font-bold mt-4">
           Buy
         </button>
       </div>

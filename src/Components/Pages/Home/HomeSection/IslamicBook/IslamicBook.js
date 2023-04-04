@@ -3,7 +3,7 @@ import React from "react";
 const IslamicBook = () => {
   return (
     <div
-      style={{ height: "450px", width: "296px" }}
+      style={{ height: "470px", width: "296px" }}
       className=" bg-slate-100 rounded-xl shadow-2xl hover:bg-pink-100 hover:shadow-inner"
     >
       <div className="indicator">
@@ -19,7 +19,7 @@ const IslamicBook = () => {
         <p>Price</p>
         <p>Publish Date</p>
       </div>
-      <button className="w-full bg-sky-600 p-3 rounded-lg text-white uppercase font-bold hover:bg-sky-500">
+      <button className="w-full  p-3 rounded-lg  uppercase font-bold">
         Book
       </button>
     </div>
