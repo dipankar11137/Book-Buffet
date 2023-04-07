@@ -20,7 +20,7 @@ const IslamicBook = () => {
         <p>Publish Date</p>
       </div>
       <button className="w-full  p-3 rounded-lg  uppercase font-bold">
-        Book
+        Book Now
       </button>
     </div>
   );
