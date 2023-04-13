@@ -8,6 +8,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./Components/Share/NotFound";
 import Home from "./Components/Pages/Home/Home/Home";
+import RequireAuth from "./Components/Login/RequireAUth";
+import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -20,6 +22,19 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
+
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      >
+        {/* <Route index element={<AddItem />} />
+          <Route path="manageItem" element={<ManageItem />} />
+          <Route path="addJobs" element={<AddJobs />} /> */}
+      </Route>
       {/* <Footer /> */}
       <ToastContainer />
     </div>
