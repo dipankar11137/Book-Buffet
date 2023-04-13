@@ -22,7 +22,7 @@ const Dashboard = () => {
                   to="/dashboard"
                   className="font-bold  text-xl hover:text-orange-600"
                 >
-                  Add Item
+                  Add Books
                 </Link>
               </li>
               <li>
@@ -30,15 +30,7 @@ const Dashboard = () => {
                   to="/dashboard/manageItem"
                   className="font-bold text-xl hover:text-orange-600"
                 >
-                  Manage Item
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/dashboard/addJobs"
-                  className="font-bold text-xl hover:text-orange-600"
-                >
-                  Job Post
+                  Manage Books
                 </Link>
               </li>
             </ul>

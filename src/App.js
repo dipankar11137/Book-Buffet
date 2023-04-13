@@ -10,6 +10,7 @@ import NotFound from "./Components/Share/NotFound";
 import Home from "./Components/Pages/Home/Home/Home";
 import RequireAuth from "./Components/Login/RequireAUth";
 import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import AddItem from "./Components/Pages/Dashboard/AddItem/AddItem";
 
 function App() {
   return (
@@ -21,20 +22,22 @@ function App() {
         <Route path="/createAccount" element={<CreateAccount />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
+
+        {/* Dashboard start */}
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<AddItem />} />
+          {/* <Route path="manageItem" element={<ManageItem />} />
+          <Route path="addJobs" element={<AddJobs />} /> */}
+        </Route>
       </Routes>
 
-      <Route
-        path="/dashboard"
-        element={
-          <RequireAuth>
-            <Dashboard />
-          </RequireAuth>
-        }
-      >
-        {/* <Route index element={<AddItem />} />
-          <Route path="manageItem" element={<ManageItem />} />
-          <Route path="addJobs" element={<AddJobs />} /> */}
-      </Route>
       {/* <Footer /> */}
       <ToastContainer />
     </div>

@@ -3,9 +3,10 @@
     "_id": 1,
     "name": "Abdul",
     "price": "90",
-    "status": "new",
+    "status": "old",
     "pDate": "12-05-23",
-    "img": "https://img.freepik.com/premium-photo/smiling-technician-working-broken-computer_13339-278445.jpg"
+    "img": "https://img.freepik.com/premium-photo/smiling-technician-working-broken-computer_13339-278445.jpg",
+    "img1": "https://img.freepik.com/free-photo/young-male-technician-wearing-gloves-fixing-computer-motherboard-with-screwdriver_23-2147922176.jpg"
   },
   {
     "_id": 2,
