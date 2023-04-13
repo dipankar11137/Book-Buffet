@@ -33,11 +33,23 @@ const AddItem = () => {
     //     });
   };
   return (
-    <div className=" pb-20">
+    <div
+      style={{
+        backgroundImage: `url("https://media.istockphoto.com/id/108224668/photo/open-book-by-lamp-light.jpg?b=1&s=170667a&w=0&k=20&c=LswLXyD7KMPwO2gzKnnC2la52R4RIsHOJIJT0lWaP24=")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+        height: "100vh",
+        // backgroundRepeat: "no-repeat",
+        // width: "3000px",
+      }}
+      className=""
+    >
       {/* <h2 className="mt-5 ml-10 font-bold text-4xl text-center text-orange-500 uppercase">
         Please Add A Technician
       </h2> */}
-      <div className="flex justify-center bg-indigo-200 p-5 rounded-2xl w-11/12 mt-5 ml-5 ">
+      <div className="flex justify-center  p-5 rounded-2xl w-11/12  ml-5 ">
         <form className=" " onSubmit={handleSubmit(onSubmit)}>
           <select
             onChange={(e) => setBooks(e.target.value)}
@@ -62,7 +74,9 @@ const AddItem = () => {
 
           {/* name */}
           <label className="label">
-            <span className="label-text">Book Name</span>
+            <span className="label-text text-white text-xl font-semibold">
+              Book Name
+            </span>
           </label>
           <input
             type="text"
@@ -84,7 +98,9 @@ const AddItem = () => {
           </label>
           {/* status */}
           <label className="label">
-            <span className="label-text">Status</span>
+            <span className="label-text text-white text-xl font-semibold">
+              Status
+            </span>
           </label>
           <select
             onChange={(e) => setStatus(e.target.value)}
@@ -97,7 +113,7 @@ const AddItem = () => {
             <option className="text-lg text-blue-900 font-bold">Old</option>
           </select>
           {/* Image */}
-          <label className="label">
+          <label className="label text-white text-xl font-semibold">
             <span className="label-text">Images</span>
           </label>
           <input
@@ -122,7 +138,9 @@ const AddItem = () => {
           {status === "Old" ? (
             <>
               <label className="label">
-                <span className="label-text">Book Publication Images</span>
+                <span className="label-text text-white text-xl font-semibold">
+                  Book Publication Images
+                </span>
               </label>
               <input
                 type="text"
@@ -149,7 +167,9 @@ const AddItem = () => {
           )}
           {/* Location */}
           <label className="label">
-            <span className="label-text">Location</span>
+            <span className="label-text text-white text-xl font-semibold">
+              Location
+            </span>
           </label>
           <input
             type="text"
@@ -171,7 +191,9 @@ const AddItem = () => {
           </label>
           {/* Description */}
           <label className="label">
-            <span className="label-text">Description</span>
+            <span className="label-text text-white text-xl font-semibold">
+              Description
+            </span>
           </label>
           <textarea
             type="text"
@@ -193,7 +215,9 @@ const AddItem = () => {
           </label>
           {/* Price */}
           <label className="label">
-            <span className="label-text">Salary</span>
+            <span className="label-text text-white text-xl font-semibold">
+              Salary
+            </span>
           </label>
           <input
             type="number"
@@ -215,13 +239,13 @@ const AddItem = () => {
           </label>
           {books ? (
             <input
-              className="btn mt-5 w-full disable text-white"
+              className="btn button mt-5 w-full disable text-white"
               type="submit"
               value="ADD"
             />
           ) : (
             <input
-              className="btn mt-5 w-full text-white"
+              className="btn button mt-5 w-full text-white"
               disabled
               type="submit"
               value="ADD"
