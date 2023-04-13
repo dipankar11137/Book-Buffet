@@ -26,12 +26,12 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      <li className="font-bold hover:text-orange-400  text-xl">
+      {/* <li className="font-bold hover:text-orange-400  text-xl">
         <Link to="/">
           <FaHome />
         </Link>
-      </li>
-      <li className="font-bold hover:text-orange-400">
+      </li> */}
+      {/* <li className="font-bold hover:text-orange-400">
         <Link to="/blogs">Blogs</Link>
       </li>
       {user && (
@@ -41,7 +41,7 @@ const Navbar = () => {
       )}
       <li className="font-bold hover:text-orange-400">
         <Link to="/showAllReview">Reviews</Link>
-      </li>
+      </li> */}
 
       {user && (
         <li className="font-bold hover:text-orange-400">
@@ -91,7 +91,7 @@ const Navbar = () => {
           className="btn btn-ghost normal-case font-bold lg:text-3xl  sm:text-sm text-amber-500"
         >
           <img className="h-12 mr-2" src="" alt="" />
-          Logo/name
+          Logo/name / Dipankar
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex lg:pr-36 ml-40">
