@@ -10,7 +10,7 @@ const IslamicBook = () => {
         <span className="indicator-item badge badge-danger">old</span>
         <img
           className="h-72"
-          src="https://thumbs.dreamstime.com/b/holy-islamic-books-15877301.jpg"
+          src="https://png.pngtree.com/png-vector/20210309/ourmid/pngtree-holy-quran-vactor-design-png-image_3025118.jpg"
           alt=""
         />
       </div>
