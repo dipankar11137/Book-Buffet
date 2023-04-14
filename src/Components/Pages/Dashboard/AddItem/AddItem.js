@@ -113,8 +113,8 @@ const AddItem = () => {
             <option className="text-lg text-blue-900 font-bold">Old</option>
           </select>
           {/* Image */}
-          <label className="label text-white text-xl font-semibold">
-            <span className="label-text">Images</span>
+          <label className="label  text-xl font-semibold">
+            <span className="label-text text-white text-xl">Images</span>
           </label>
           <input
             type="text"
