@@ -56,12 +56,35 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center h-screen bg-slate-700">
-      <div className="w-4/12 pt-40">
+    <div
+      style={{
+        backgroundImage: `url("https://media.istockphoto.com/id/108224668/photo/open-book-by-lamp-light.jpg?b=1&s=170667a&w=0&k=20&c=LswLXyD7KMPwO2gzKnnC2la52R4RIsHOJIJT0lWaP24=")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "1000px",
+        // backgroundRepeat: "no-repeat",
+        // width: "3000px",
+      }}
+      className="flex justify-center h-screen bg-slate-700"
+    >
+      {/* <div className="w-4/12 pt-40">
         <img className="w-11/12 rounded-xl" src={login} alt="" />
-      </div>
+      </div> */}
       <div className="flex justify-center items-center ">
-        <div className="card w-96 shadow-2xl bg-violet-50">
+        <div
+          style={{
+            backgroundImage: `url("https://media.istockphoto.com/id/108224668/photo/open-book-by-lamp-light.jpg?b=1&s=170667a&w=0&k=20&c=LswLXyD7KMPwO2gzKnnC2la52R4RIsHOJIJT0lWaP24=")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            width: "100%",
+            // backgroundRepeat: "no-repeat",
+            // width: "3000px",
+          }}
+          className="card w-96 shadow-2xl bg-violet-50"
+        >
           <div className="card-body">
             <h2 className="text-center text-2xl">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
