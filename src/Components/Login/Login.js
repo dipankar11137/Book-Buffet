@@ -80,6 +80,7 @@ const Login = () => {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             width: "100%",
+            boxShadow: "2px ",
             // backgroundRepeat: "no-repeat",
             // width: "3000px",
           }}
