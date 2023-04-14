@@ -46,11 +46,11 @@ const AddItem = () => {
       }}
       className=""
     >
-      {/* <h2 className="mt-5 ml-10 font-bold text-4xl text-center text-orange-500 uppercase">
-        Please Add A Technician
-      </h2> */}
+      <h2 className="pt-5 mr-32 font-bold text-4xl text-center text-white uppercase">
+        Add A Book
+      </h2>
       <div className="flex justify-center  p-5 rounded-2xl w-11/12  ml-5 ">
-        <form className="" onSubmit={handleSubmit(onSubmit)}>
+        <form className="mt-10" onSubmit={handleSubmit(onSubmit)}>
           <select
             onChange={(e) => setBooks(e.target.value)}
             className="select select-primary w-96 max-w-xs"

@@ -11,6 +11,7 @@ import Home from "./Components/Pages/Home/Home/Home";
 import RequireAuth from "./Components/Login/RequireAUth";
 import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 import AddItem from "./Components/Pages/Dashboard/AddItem/AddItem";
+import ManageItems from "./Components/Pages/Dashboard/ManageItem/ManageItems";
 
 function App() {
   return (
@@ -33,8 +34,8 @@ function App() {
           }
         >
           <Route index element={<AddItem />} />
-          {/* <Route path="manageItem" element={<ManageItem />} />
-          <Route path="addJobs" element={<AddJobs />} /> */}
+          <Route path="manageItem" element={<ManageItems />} />
+          {/* <Route path="addJobs" element={<AddJobs />} /> */}
         </Route>
       </Routes>
 
