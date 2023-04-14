@@ -39,8 +39,8 @@ const AddItem = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "1000px",
         // backgroundRepeat: "no-repeat",
         // width: "3000px",
       }}
@@ -50,7 +50,7 @@ const AddItem = () => {
         Please Add A Technician
       </h2> */}
       <div className="flex justify-center  p-5 rounded-2xl w-11/12  ml-5 ">
-        <form className=" " onSubmit={handleSubmit(onSubmit)}>
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
           <select
             onChange={(e) => setBooks(e.target.value)}
             className="select select-primary w-96 max-w-xs"
@@ -245,7 +245,7 @@ const AddItem = () => {
             />
           ) : (
             <input
-              className="btn button mt-5 w-full text-white"
+              className="btn  button mt-5 w-full text-white"
               disabled
               type="submit"
               value="ADD"
