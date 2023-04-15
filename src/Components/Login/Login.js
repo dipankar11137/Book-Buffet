@@ -58,21 +58,16 @@ const Login = () => {
   return (
     <div
       style={{
-        backgroundImage: `url("https://media.istockphoto.com/id/108224668/photo/open-book-by-lamp-light.jpg?b=1&s=170667a&w=0&k=20&c=LswLXyD7KMPwO2gzKnnC2la52R4RIsHOJIJT0lWaP24=")`,
+        backgroundImage: `url("https://png.pngtree.com/background/20210714/original/pngtree-abstract-particles-background-with-geometric-connection-concept-vector-illustration-picture-image_1233144.jpg")`,
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100%",
-        height: "1000px",
-        // backgroundRepeat: "no-repeat",
-        // width: "3000px",
+        height: "100vp",
       }}
       className="flex justify-center h-screen bg-slate-700"
     >
-      {/* <div className="w-4/12 pt-40">
-        <img className="w-11/12 rounded-xl" src={login} alt="" />
-      </div> */}
-      <div className="flex justify-center items-center ">
+      <div className="mt-32  ">
         <div
           style={{
             backgroundImage: `url("https://media.istockphoto.com/id/108224668/photo/open-book-by-lamp-light.jpg?b=1&s=170667a&w=0&k=20&c=LswLXyD7KMPwO2gzKnnC2la52R4RIsHOJIJT0lWaP24=")`,
@@ -81,22 +76,21 @@ const Login = () => {
             backgroundRepeat: "no-repeat",
             width: "100%",
             boxShadow: "2px ",
-            // backgroundRepeat: "no-repeat",
-            // width: "3000px",
           }}
           className="card w-96 shadow-2xl bg-violet-50"
         >
-          <div className="card-body">
-            <h2 className="text-center text-2xl">Login</h2>
+          <div className="card-body text-white">
+            <h2 className="text-center text-3xl font-bold">Login</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full ">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white">Email</span>
                 </label>
                 <input
+                  style={{ width: "400px" }}
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered bg-white w-full max-w-xs"
+                  className="input input-bordered bg-white  w-96 "
                   {...register("email", {
                     required: {
                       value: true,
@@ -121,14 +115,14 @@ const Login = () => {
                   )}
                 </label>
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full ">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   type="password"
                   placeholder="Password"
-                  className="input input-bordered bg-white w-full max-w-xs"
+                  className="input input-bordered bg-white w-full "
                   {...register("password", {
                     required: {
                       value: true,
@@ -161,20 +155,12 @@ const Login = () => {
                 value="Login"
               />
             </form>
-            <p>
-              <small>
-                New to BoxBerry Motor?{" "}
-                <Link to="/createAccount" className="text-orange-600 font-bold">
-                  Create New Account
-                </Link>
-              </small>
-            </p>
+            <p></p>
             <div className="divider">OR</div>
-            <button
-              onClick={() => signInWithGoogle()}
-              className="btn btn-outline font-black"
-            >
-              Continue With Google
+            <button className="btn btn-outline font-black bg-lime-500">
+              <Link to="/createAccount" className=" font-bold">
+                Create New Account
+              </Link>
             </button>
           </div>
         </div>
