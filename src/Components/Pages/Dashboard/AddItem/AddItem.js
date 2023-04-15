@@ -50,10 +50,10 @@ const AddItem = () => {
         Add A Book
       </h2>
       <div className="flex justify-center  p-5 rounded-2xl w-11/12  ml-5 ">
-        <form className="mt-10" onSubmit={handleSubmit(onSubmit)}>
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
           <select
             onChange={(e) => setBooks(e.target.value)}
-            className="select select-primary w-96 max-w-xs"
+            className="select select-primary w-96 "
           >
             <option className="text-lg font-bold" disabled selected>
               Select Your Books
@@ -81,7 +81,7 @@ const AddItem = () => {
           <input
             type="text"
             placeholder="Book Name"
-            className="input input-bordered bg-white lg:w-96 sm:w-full max-w-xs hover:shadow-xl shadow-inner"
+            className="input input-bordered bg-white lg:w-96 sm:w-full   hover:shadow-xl shadow-inner"
             {...register("name", {
               required: {
                 value: true,
@@ -104,7 +104,7 @@ const AddItem = () => {
           </label>
           <select
             onChange={(e) => setStatus(e.target.value)}
-            className="select select-primary w-96 max-w-xs"
+            className="select select-primary w-96  "
           >
             <option className="text-lg font-bold" disabled selected>
               New
@@ -119,7 +119,7 @@ const AddItem = () => {
           <input
             type="text"
             placeholder="Images URL"
-            className="input input-bordered bg-white w-full max-w-xs hover:shadow-xl shadow-inner"
+            className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
             {...register("img", {
               required: {
                 value: true,
@@ -145,7 +145,7 @@ const AddItem = () => {
               <input
                 type="text"
                 placeholder="Images URL"
-                className="input input-bordered bg-white w-full max-w-xs hover:shadow-xl shadow-inner"
+                className="input input-bordered bg-white w-full   hover:shadow-xl shadow-inner"
                 {...register("imgP", {
                   required: {
                     value: true,
@@ -174,7 +174,7 @@ const AddItem = () => {
           <input
             type="text"
             placeholder="Services Location"
-            className="input input-bordered bg-white w-full max-w-xs  hover:shadow-xl shadow-inner"
+            className="input input-bordered bg-white w-full    hover:shadow-xl shadow-inner"
             {...register("location", {
               required: {
                 value: true,
@@ -198,7 +198,7 @@ const AddItem = () => {
           <textarea
             type="text"
             placeholder="Description"
-            className="input input-bordered bg-white w-full max-w-xs h-20 pt-1 hover:shadow-xl shadow-inner"
+            className="input input-bordered bg-white w-full   h-20 pt-1 hover:shadow-xl shadow-inner"
             {...register("description", {
               required: {
                 value: true,
@@ -216,17 +216,17 @@ const AddItem = () => {
           {/* Price */}
           <label className="label">
             <span className="label-text text-white text-xl font-semibold">
-              Salary
+              Price
             </span>
           </label>
           <input
             type="number"
-            placeholder="Salary"
-            className="input input-bordered bg-white w-full max-w-xs  hover:shadow-xl shadow-inner"
+            placeholder="Price"
+            className="input input-bordered bg-white w-full    hover:shadow-xl shadow-inner"
             {...register("price", {
               required: {
                 value: true,
-                message: "Salary is Required",
+                message: "Price is Required",
               },
             })}
           />

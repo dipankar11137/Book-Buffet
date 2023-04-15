@@ -67,9 +67,6 @@ const CreateAccount = () => {
       }}
       className="flex justify-center  bg-slate-700"
     >
-      {/* <div className="w-4/12 pt-40">
-        <img className="w-11/12 rounded-xl" src={login} alt="" />
-      </div> */}
       <div className="flex justify-center items-center  mt-4">
         <div
           style={{
