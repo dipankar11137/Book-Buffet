@@ -56,21 +56,42 @@ const CreateAccount = () => {
     navigate("/");
   };
   return (
-    <div className="flex justify-center h-screen bg-slate-700">
-      <div className="w-4/12 pt-40">
+    <div
+      style={{
+        backgroundImage: `url("https://png.pngtree.com/background/20210714/original/pngtree-abstract-particles-background-with-geometric-connection-concept-vector-illustration-picture-image_1233144.jpg")`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "100vp",
+      }}
+      className="flex justify-center h-screen bg-slate-700"
+    >
+      {/* <div className="w-4/12 pt-40">
         <img className="w-11/12 rounded-xl" src={login} alt="" />
-      </div>
+      </div> */}
       <div className="flex h-screen justify-center items-center  ">
-        <div className="card w-96 shadow-xl bg-violet-50">
-          <div className="card-body">
+        <div
+          style={{
+            backgroundImage: `url("https://img.freepik.com/premium-psd/black-white-glow-dust-particle-abstract-background_35672-1431.jpg")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            width: "100%",
+            height: "100vp",
+          }}
+          className="card w-96 shadow-2xl bg-violet-200"
+        >
+          <div className="card-body text-white">
             <h2 className="text-center text-2xl font-bold">SignUp</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text text-white">Name</span>
                 </label>
                 <input
+                  style={{ width: "400px" }}
                   type="text"
                   placeholder="Your name"
                   className="input input-bordered bg-white w-full max-w-xs"
@@ -91,7 +112,7 @@ const CreateAccount = () => {
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white">Email</span>
                 </label>
                 <input
                   type="email"
@@ -123,7 +144,7 @@ const CreateAccount = () => {
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   type="password"
@@ -161,20 +182,14 @@ const CreateAccount = () => {
               />
             </form>
             <p>
-              <small>
-                Already Have an Account ?{" "}
-                <Link to="/login" className="text-orange-600 font-bold">
-                  Please Login
-                </Link>
-              </small>
+              <small></small>
             </p>
             <div className="divider">OR</div>
-            <button
-              onClick={() => signInWithGoogle()}
-              className="btn btn-outline font-black bg-orange-600 text-white"
-            >
-              Continue With Google
-            </button>
+            <p className="ml-2">Already Have An Account</p>
+
+            <Link to="/login" className="btn bg-lime-500 text-black font-bold">
+              Please Login
+            </Link>
           </div>
         </div>
       </div>
