@@ -65,12 +65,12 @@ const CreateAccount = () => {
         width: "100%",
         height: "100vp",
       }}
-      className="flex justify-center h-screen bg-slate-700"
+      className="flex justify-center  bg-slate-700"
     >
       {/* <div className="w-4/12 pt-40">
         <img className="w-11/12 rounded-xl" src={login} alt="" />
       </div> */}
-      <div className="flex h-screen justify-center items-center  ">
+      <div className="flex justify-center items-center  mt-4">
         <div
           style={{
             backgroundImage: `url("https://img.freepik.com/premium-psd/black-white-glow-dust-particle-abstract-background_35672-1431.jpg")`,
@@ -91,7 +91,7 @@ const CreateAccount = () => {
                   <span className="label-text text-white">Name</span>
                 </label>
                 <input
-                  style={{ width: "350px" }}
+                  style={{ width: "400px" }}
                   type="text"
                   placeholder="Your name"
                   className="input input-bordered bg-white w-full   "
@@ -110,6 +110,7 @@ const CreateAccount = () => {
                   )}
                 </label>
               </div>
+              {/* email */}
               <div className="form-control w-full   ">
                 <label className="label">
                   <span className="label-text text-white">Email</span>
@@ -138,6 +139,54 @@ const CreateAccount = () => {
                   {errors.email?.type === "pattern" && (
                     <span className="label-text-alt text-red-500">
                       {errors.email.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              {/* Phone */}
+              <div className="form-control w-full   ">
+                <label className="label">
+                  <span className="label-text text-white">Phone</span>
+                </label>
+                <input
+                  type="phone"
+                  placeholder="Write Your Phone Number"
+                  className="input input-bordered bg-white w-full   "
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "Phone is Required",
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.phone?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.phone.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              {/* photo */}
+              <div className="form-control w-full   ">
+                <label className="label">
+                  <span className="label-text text-white">Image</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your Phone URL"
+                  className="input input-bordered bg-white w-full   "
+                  {...register("photo", {
+                    required: {
+                      value: true,
+                      message: "Photo is Required",
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.photo?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.photo.message}
                     </span>
                   )}
                 </label>
