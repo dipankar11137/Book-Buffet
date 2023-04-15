@@ -122,7 +122,7 @@ const Login = () => {
                 <input
                   type="password"
                   placeholder="Password"
-                  className="input input-bordered bg-white w-full "
+                  className="input input-bordered text-black font-bold bg-white w-full "
                   {...register("password", {
                     required: {
                       value: true,
