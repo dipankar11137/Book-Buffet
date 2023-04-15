@@ -157,11 +157,13 @@ const Login = () => {
             </form>
             <p></p>
             <div className="divider">OR</div>
-            <button className="btn btn-outline font-black bg-lime-500">
-              <Link to="/createAccount" className=" font-bold">
-                Create New Account
-              </Link>
-            </button>
+
+            <Link
+              to="/createAccount"
+              className="btn btn-outline font-black bg-lime-500 "
+            >
+              Create New Account
+            </Link>
           </div>
         </div>
       </div>

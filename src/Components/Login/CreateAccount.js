@@ -86,15 +86,15 @@ const CreateAccount = () => {
             <h2 className="text-center text-2xl font-bold">SignUp</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full   ">
                 <label className="label">
                   <span className="label-text text-white">Name</span>
                 </label>
                 <input
-                  style={{ width: "400px" }}
+                  style={{ width: "350px" }}
                   type="text"
                   placeholder="Your name"
-                  className="input input-bordered bg-white w-full max-w-xs"
+                  className="input input-bordered bg-white w-full   "
                   {...register("name", {
                     required: {
                       value: true,
@@ -110,14 +110,14 @@ const CreateAccount = () => {
                   )}
                 </label>
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full   ">
                 <label className="label">
                   <span className="label-text text-white">Email</span>
                 </label>
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered bg-white w-full max-w-xs"
+                  className="input input-bordered bg-white w-full   "
                   {...register("email", {
                     required: {
                       value: true,
@@ -142,14 +142,14 @@ const CreateAccount = () => {
                   )}
                 </label>
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full   ">
                 <label className="label">
                   <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   type="password"
                   placeholder="Password"
-                  className="input input-bordered bg-white w-full max-w-xs"
+                  className="input input-bordered bg-white w-full   "
                   {...register("password", {
                     required: {
                       value: true,
@@ -187,7 +187,10 @@ const CreateAccount = () => {
             <div className="divider">OR</div>
             <p className="ml-2">Already Have An Account</p>
 
-            <Link to="/login" className="btn bg-lime-500 text-black font-bold">
+            <Link
+              to="/login"
+              className="btn btn-outline  bg-lime-500 text-black font-bold"
+            >
               Please Login
             </Link>
           </div>
