@@ -17,7 +17,7 @@ const AddItem = () => {
   const onSubmit = (data) => {
     const changeUrl = { ...data, books: books, status: status };
     // console.log(changeUrl);
-    const url = `http://localhost:5000/allBooks`;
+    const url = `http://localhost:5000/books`;
     fetch(url, {
       method: "POST",
       headers: {
