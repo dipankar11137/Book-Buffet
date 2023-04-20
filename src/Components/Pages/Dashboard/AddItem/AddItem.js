@@ -212,6 +212,30 @@ const AddItem = () => {
               </span>
             )}
           </label>
+          {/* Date */}
+          <label className="label">
+            <span className="label-text text-white text-xl font-semibold">
+              Date
+            </span>
+          </label>
+          <input
+            type="date"
+            placeholder="Price"
+            className="input input-bordered bg-white w-full    hover:shadow-xl shadow-inner"
+            {...register("date", {
+              required: {
+                value: true,
+                message: "Date is Required",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.date?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors?.date?.message}
+              </span>
+            )}
+          </label>
           {/* Price */}
           <label className="label">
             <span className="label-text text-white text-xl font-semibold">

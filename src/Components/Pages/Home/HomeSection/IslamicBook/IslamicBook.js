@@ -1,6 +1,7 @@
 import React from "react";
 
-const IslamicBook = () => {
+const IslamicBook = ({ product }) => {
+  const { name, img, location, description, status } = product;
   return (
     <div
       style={{ height: "470px", width: "296px" }}
