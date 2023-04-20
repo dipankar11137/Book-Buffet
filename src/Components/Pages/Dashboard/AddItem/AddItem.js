@@ -7,7 +7,6 @@ const AddItem = () => {
   // const [user] = useAuthState(auth);
   const [books, setBooks] = useState("");
   const [status, setStatus] = useState("New");
-  console.log(status);
 
   const {
     register,
@@ -16,8 +15,8 @@ const AddItem = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    //   const changeUrl = { ...data, service: service };
-    //   console.log(changeUrl);
+    const changeUrl = { ...data, books: books, status: status };
+    // console.log(changeUrl);
     //   const url = `http://localhost:5000/allServices`;
     //   fetch(url, {
     //     method: "POST",
