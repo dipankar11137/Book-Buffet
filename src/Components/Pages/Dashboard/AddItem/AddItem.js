@@ -17,19 +17,19 @@ const AddItem = () => {
   const onSubmit = (data) => {
     const changeUrl = { ...data, books: books, status: status };
     // console.log(changeUrl);
-    //   const url = `http://localhost:5000/allServices`;
-    //   fetch(url, {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(changeUrl),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((result) => {
-    //       toast.success("Successfully Add This Products");
-    //       reset();
-    //     });
+    const url = `http://localhost:5000/allBooks`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(changeUrl),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        toast.success("Successfully Add This Products");
+        reset();
+      });
   };
   return (
     <div
