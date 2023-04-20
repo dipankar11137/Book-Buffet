@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const AddItem = () => {
   // const [user] = useAuthState(auth);
-  const [books, setBooks] = useState("");
+  const [booksCategory, setBooksCategory] = useState("");
   const [status, setStatus] = useState("New");
 
   const {
@@ -15,7 +15,7 @@ const AddItem = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    const changeUrl = { ...data, books: books, status: status };
+    const changeUrl = { ...data, booksCategory: booksCategory, status: status };
     // console.log(changeUrl);
     const url = `http://localhost:5000/books`;
     fetch(url, {
@@ -51,7 +51,7 @@ const AddItem = () => {
       <div className="flex justify-center  p-5 rounded-2xl w-11/12  ml-5 ">
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <select
-            onChange={(e) => setBooks(e.target.value)}
+            onChange={(e) => setBooksCategory(e.target.value)}
             className="select select-primary w-96 "
           >
             <option className="text-lg font-bold" disabled selected>
@@ -236,7 +236,7 @@ const AddItem = () => {
               </span>
             )}
           </label>
-          {books ? (
+          {booksCategory ? (
             <input
               className="btn button mt-5 w-full disable text-white"
               type="submit"

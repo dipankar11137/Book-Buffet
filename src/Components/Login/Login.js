@@ -46,13 +46,6 @@ const Login = () => {
     const email = data.email;
     await signInWithEmailAndPassword(data.email, data.password);
     toast.success("Successfully Login");
-    // const { accessToken } = await axios.post(
-    //   "https://boxberry.onrender.com/login",
-    //   {
-    //     email,
-    //   }
-    // );
-    // console.log(accessToken);
   };
 
   return (
