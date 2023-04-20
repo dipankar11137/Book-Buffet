@@ -1,25 +1,23 @@
 import React from "react";
 
 const IslamicBook = ({ product }) => {
-  const { name, img, location, description, status } = product;
+  const { name, img, price, location, description, date, status } = product;
   return (
     <div
-      style={{ height: "470px", width: "296px" }}
+      style={{ height: "500px", width: "289px" }}
       className=" bg-slate-100 rounded-xl shadow-2xl hover:bg-pink-100 hover:shadow-inner"
     >
       <div className="indicator">
-        <span className="indicator-item badge badge-danger">old</span>
-        <img
-          className="h-72"
-          src="https://png.pngtree.com/png-vector/20210309/ourmid/pngtree-holy-quran-vactor-design-png-image_3025118.jpg"
-          alt=""
-        />
+        <span className="indicator-item badge badge-danger">{status}</span>
+        <img className="h-72 w-72" src={img} alt="" />
       </div>
       <div className="p-3 mt-5 ">
-        <h1>Islamic Book</h1>
-        <p>Price</p>
-        <p>Publish Date</p>
+        <h1>{name}</h1>
+        <p>{price}</p>
+        <p>{date}</p>
+        <p>{description}</p>
       </div>
+
       <button className="w-full  p-3 rounded-lg  uppercase font-bold">
         Book Now
       </button>
