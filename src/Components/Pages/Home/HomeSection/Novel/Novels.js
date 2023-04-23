@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Novel from "./Novel";
+import { useNavigate } from "react-router-dom";
 
 const Novels = () => {
   const [products, setProducts] = useState([]);
+  const navigation = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/books/Novel Books")
@@ -11,10 +13,10 @@ const Novels = () => {
   }, []);
 
   const handleBuy = (id) => {
-    console.log("buy", id);
+    navigation(`/buy/${id}`);
   };
   const handleBook = (id) => {
-    console.log("book", id);
+    navigation(`/book/${id}`);
   };
   return (
     <div className="mt-20 mx-20 shadow-xl p-3">
