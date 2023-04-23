@@ -2,7 +2,6 @@ import React from "react";
 import "../../../../CSS/NovelStyle.css";
 
 const Novel = ({ product, handleBuy, handleBook }) => {
-  console.log(product);
   const { _id, name, img, price, status, date, writerName } = product;
   return (
     <div
