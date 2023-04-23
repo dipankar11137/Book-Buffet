@@ -95,6 +95,30 @@ const AddItem = () => {
               </span>
             )}
           </label>
+          {/* Writer Name */}
+          <label className="label">
+            <span className="label-text text-white text-xl font-semibold">
+              Writer Name
+            </span>
+          </label>
+          <input
+            type="text"
+            placeholder="Writer Name"
+            className="input input-bordered bg-white lg:w-96 sm:w-full   hover:shadow-xl shadow-inner"
+            {...register("writerName", {
+              required: {
+                value: true,
+                message: "Writer Name is Required",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.writerName?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors?.writerName?.message}
+              </span>
+            )}
+          </label>
           {/* status */}
           <label className="label">
             <span className="label-text text-white text-xl font-semibold">
