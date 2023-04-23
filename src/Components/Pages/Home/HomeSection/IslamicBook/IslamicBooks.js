@@ -5,7 +5,7 @@ const IslamicBooks = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/books")
+    fetch("http://localhost:5000/books/ISLAMIC BOOKS")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
