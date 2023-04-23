@@ -39,7 +39,7 @@ const AddItem = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100%",
-        height: "1000px",
+        height: "1200px",
         // backgroundRepeat: "no-repeat",
         // width: "3000px",
       }}
