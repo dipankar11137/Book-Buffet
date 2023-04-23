@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
-const Books = () => {
+const Bucks = () => {
   const {
     register,
     formState: { errors },
@@ -48,7 +49,7 @@ const Books = () => {
     >
       <div>
         {/* <h1>change {change}</h1> */}
-        <h1 className="text-4xl pt-5 font-extrabold ml-20">Buy Books</h1>
+        <h1 className="text-4xl pt-5 font-extrabold ml-20">Buck Books</h1>
         <div className="flex justify-center ">
           <div
             style={{
@@ -72,10 +73,10 @@ const Books = () => {
               </label>
               {/* Quantity */}
               {/* <label className="label">
-              <span className="label-text text-2xl font-semibold">
-                Your Quantity
-              </span>
-            </label> */}
+                <span className="label-text text-2xl font-semibold">
+                  Your Quantity
+                </span>
+              </label> */}
               <input
                 style={{ width: "350px" }}
                 onChange={(e) => setChange(e.target.quantity)}
@@ -98,10 +99,10 @@ const Books = () => {
               </label>
               {/* Price */}
               {/* <label className="label">
-              <span className="label-text text-2xl font-semibold">
-                Total Price
-              </span>
-            </label> */}
+                <span className="label-text text-2xl font-semibold">
+                  Total Price
+                </span>
+              </label> */}
               <input
                 type="number"
                 placeholder="Total Price"
@@ -141,10 +142,10 @@ const Books = () => {
 
               {/* number */}
               {/* <label className="label">
-              <span className="label-text text-2xl font-semibold">
-                Phone Number
-              </span>
-            </label> */}
+                <span className="label-text text-2xl font-semibold">
+                  Phone Number
+                </span>
+              </label> */}
               <input
                 type="number"
                 placeholder="Phone Number"
@@ -165,8 +166,8 @@ const Books = () => {
               </label>
               {/* date */}
               {/* <label className="label">
-              <span className="label-text text-2xl font-semibold">Date</span>
-            </label> */}
+                <span className="label-text text-2xl font-semibold">Date</span>
+              </label> */}
               <input
                 type="date"
                 placeholder="Phone Number"
@@ -199,4 +200,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default Bucks;
