@@ -16,7 +16,7 @@ const Novels = () => {
     navigation(`/buy/${id}`);
   };
   const handleBook = (id) => {
-    navigation(`/book/${id}`);
+    navigation(`/bucks/${id}`);
   };
   return (
     <div className="mt-20 mx-20 shadow-xl p-3">

@@ -49,7 +49,7 @@ const Bucks = () => {
     >
       <div>
         {/* <h1>change {change}</h1> */}
-        <h1 className="text-4xl pt-5 font-extrabold ml-20">Buck Books</h1>
+        <h1 className="text-4xl pt-5 font-extrabold ml-20">Book Booking</h1>
         <div className="flex justify-center ">
           <div
             style={{
@@ -81,19 +81,19 @@ const Bucks = () => {
                 style={{ width: "350px" }}
                 onChange={(e) => setChange(e.target.quantity)}
                 type="number"
-                placeholder="Write Your Quantity"
+                placeholder="Your Bookings Days"
                 className="input input-bordered  bg-white w-full   hover:shadow-xl"
-                {...register("quantity", {
+                {...register("bookingQuantity", {
                   required: {
                     value: true,
-                    message: "Quantity is Required",
+                    message: "Booking Quantity is Required",
                   },
                 })}
               />
               <label className="label">
-                {errors.quantity?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
-                    {errors?.quantity?.message}
+                {errors.bookingQuantity?.type === "required" && (
+                  <span className="label-text-alt  text-xl text-white rounded-xl bg-red-700 p-1 w-full ">
+                    {errors?.bookingQuantity?.message}
                   </span>
                 )}
               </label>
@@ -116,7 +116,7 @@ const Bucks = () => {
               />
               <label className="label">
                 {errors.totalPrice?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.totalPrice?.message}
                   </span>
                 )}
@@ -134,12 +134,36 @@ const Bucks = () => {
               />
               <label className="label">
                 {errors.address?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.address?.message}
                   </span>
                 )}
               </label>
 
+              {/* NID Number */}
+              {/* <label className="label">
+                <span className="label-text text-2xl font-semibold">
+                  Phone Number
+                </span>
+              </label> */}
+              <input
+                type="number"
+                placeholder="Your Nid Number"
+                className="input input-bordered  bg-white w-full   hover:shadow-xl"
+                {...register("nid", {
+                  required: {
+                    value: true,
+                    message: "Nid is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.nid?.type === "required" && (
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
+                    {errors?.nid?.message}
+                  </span>
+                )}
+              </label>
               {/* number */}
               {/* <label className="label">
                 <span className="label-text text-2xl font-semibold">
@@ -159,7 +183,7 @@ const Bucks = () => {
               />
               <label className="label">
                 {errors.phone?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.phone?.message}
                   </span>
                 )}
@@ -181,7 +205,7 @@ const Bucks = () => {
               />
               <label className="label">
                 {errors.date?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.date?.message}
                   </span>
                 )}

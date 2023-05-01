@@ -93,7 +93,7 @@ const Buy = () => {
               />
               <label className="label">
                 {errors.quantity?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.quantity?.message}
                   </span>
                 )}
@@ -117,7 +117,7 @@ const Buy = () => {
               />
               <label className="label">
                 {errors.totalPrice?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.totalPrice?.message}
                   </span>
                 )}
@@ -135,7 +135,7 @@ const Buy = () => {
               />
               <label className="label">
                 {errors.address?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.address?.message}
                   </span>
                 )}
@@ -160,7 +160,7 @@ const Buy = () => {
               />
               <label className="label">
                 {errors.phone?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.phone?.message}
                   </span>
                 )}
@@ -182,7 +182,7 @@ const Buy = () => {
               />
               <label className="label">
                 {errors.date?.type === "required" && (
-                  <span className="label-text-alt text-red-500 text-xl">
+                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
                     {errors?.date?.message}
                   </span>
                 )}

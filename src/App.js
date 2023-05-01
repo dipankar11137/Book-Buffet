@@ -13,7 +13,7 @@ import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 import AddItem from "./Components/Pages/Dashboard/AddItem/AddItem";
 import ManageItems from "./Components/Pages/Dashboard/ManageItem/ManageItems";
 import Buy from "./Components/Pages/Home/Buy/Buy";
-import Books from "./Components/Pages/Home/Books/Books";
+import Bucks from "./Components/Pages/Home/Bucks/Bucks";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/createAccount" element={<CreateAccount />}></Route>
         <Route path="/buy/:id" element={<Buy />}></Route>
-        <Route path="/book/:id" element={<Books />}></Route>
+        <Route path="/bucks/:id" element={<Bucks />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
 
