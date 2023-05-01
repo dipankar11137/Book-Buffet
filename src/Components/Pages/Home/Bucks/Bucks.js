@@ -6,7 +6,7 @@ const Bucks = () => {
   const { id } = useParams();
   const [books, setBooks] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const totalPrice = inputValue * books?.price;
+  const totalPrice = inputValue * books?.bPrice;
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
       .then((res) => res.json())
@@ -48,9 +48,6 @@ const Bucks = () => {
     //   });
   };
 
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
   return (
     <div
       style={{
@@ -103,26 +100,6 @@ const Bucks = () => {
                 )}
               </label>
 
-              <input
-                onChange={handleInputChange}
-                type="number"
-                value={totalPrice}
-                className="input input-bordered  bg-white w-full   hover:shadow-xl"
-                {...register("totalPrice", {
-                  required: {
-                    value: true,
-                    message: "totalPrice is Required",
-                  },
-                })}
-              />
-
-              <label className="label">
-                {errors.totalPrice?.type === "required" && (
-                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
-                    {errors?.totalPrice?.message}
-                  </span>
-                )}
-              </label>
               <textarea
                 type="text"
                 placeholder="Your Address"
@@ -202,6 +179,16 @@ const Bucks = () => {
                   </span>
                 )}
               </label>
+              {/* Total Price */}
+              <h1 className="text-center bg-white mb-2 p-1 rounded-lg font-bold text-xl">
+                Total Price
+              </h1>
+
+              <input
+                type="number"
+                value={totalPrice}
+                className="input input-bordered mb-3  bg-white w-full   hover:shadow-xl text-xl font-bold text-center"
+              />
 
               <input
                 className="btn  w-full text-white mt-5"
