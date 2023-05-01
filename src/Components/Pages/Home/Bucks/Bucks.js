@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Bucks = () => {
   const { id } = useParams();
   const [books, setBooks] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  const totalPrice = inputValue * books?.bPrice;
+  const [bookingDay, setBookingDay] = useState("");
+  const totalPrice = bookingDay * books?.bPrice;
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
       .then((res) => res.json())
@@ -20,32 +21,27 @@ const Bucks = () => {
     reset,
   } = useForm();
 
-  const [change, setChange] = useState(0);
   const onSubmit = (data) => {
-    console.log(data);
-    // const updateData = {
-    //   ...data,
-    //   img: img,
-    //   name: name,
-    //   service: service,
-    //   price: price,
-    //   customerName: customerName,
-    //   email: email,
-    // };
-    // // console.log(updateData);
-    // const url = `http://localhost:5000/bookService`;
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(updateData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     toast.success("Successfully Book This Person");
-    //     reset();
-    //   });
+    const updateData = {
+      ...data,
+      bookInfo: books,
+      totalBookingPrice: totalPrice,
+      bookingDay: bookingDay,
+    };
+    console.log(updateData);
+    const url = `http://localhost:5000/bookingsBook`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        toast.success("Successfully Booking This Book");
+        reset();
+      });
   };
 
   return (
@@ -80,7 +76,7 @@ const Bucks = () => {
               </h1>
 
               <select
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={(e) => setBookingDay(e.target.value)}
                 className="select select-primary w-96 "
               >
                 <option className="text-lg font-bold " disabled selected>
