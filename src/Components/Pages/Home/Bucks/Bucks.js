@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 
 const Bucks = () => {
+  const { id } = useParams();
+  const [books, setBooks] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const totalPrice = inputValue * books?.price;
+  useEffect(() => {
+    fetch(`http://localhost:5000/book/${id}`)
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, [id]);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
+
   const [change, setChange] = useState(0);
   const onSubmit = (data) => {
     console.log(data);
@@ -35,6 +47,10 @@ const Bucks = () => {
     //     reset();
     //   });
   };
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
+  }
   return (
     <div
       style={{
@@ -48,7 +64,6 @@ const Bucks = () => {
       className="flex justify-center h-screen bg-slate-700"
     >
       <div>
-        {/* <h1>change {change}</h1> */}
         <h1 className="text-4xl pt-5 font-extrabold ml-20">Book Booking</h1>
         <div className="flex justify-center ">
           <div
@@ -60,36 +75,26 @@ const Bucks = () => {
               width: "100%",
               height: "100vp",
             }}
-            className=" w-96 bg-slate-300 rounded-lg shadow-2xl p-10 mt-10"
+            className=" w-96 bg-slate-300 rounded-lg shadow-2xl p-10 mt-5"
           >
             <form className="" onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-2xl font-bold text-center">
-                {/* {appleProduct?.name} */}
+              <h1 className="text-2xl font-bold text-center bg-white rounded-lg p-1 mb-2">
+                {books?.name}
               </h1>
-              <label className="label">
-                <span className="label-text font-bold text-lime-700 text-2xl">
-                  {/* {bookServices?.name} */}
-                </span>
-              </label>
-              {/* Quantity */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Your Quantity
-                </span>
-              </label> */}
-              <input
-                style={{ width: "350px" }}
-                onChange={(e) => setChange(e.target.quantity)}
-                type="number"
-                placeholder="Your Bookings Days"
-                className="input input-bordered  bg-white w-full   hover:shadow-xl"
-                {...register("bookingQuantity", {
-                  required: {
-                    value: true,
-                    message: "Booking Quantity is Required",
-                  },
-                })}
-              />
+
+              <select
+                onChange={(e) => setInputValue(e.target.value)}
+                className="select select-primary w-96 "
+              >
+                <option className="text-lg font-bold " disabled selected>
+                  Select Your Bookings Days
+                </option>
+                <option className="text-lg text-blue-900 font-bold">1</option>
+                <option className="text-lg text-blue-900 font-bold">2</option>
+                <option className="text-lg text-blue-900 font-bold">3</option>
+                <option className="text-lg text-blue-900 font-bold">4</option>
+              </select>
+
               <label className="label">
                 {errors.bookingQuantity?.type === "required" && (
                   <span className="label-text-alt  text-xl text-white rounded-xl bg-red-700 p-1 w-full ">
@@ -97,15 +102,11 @@ const Bucks = () => {
                   </span>
                 )}
               </label>
-              {/* Price */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Total Price
-                </span>
-              </label> */}
+
               <input
+                onChange={handleInputChange}
                 type="number"
-                placeholder="Total Price"
+                value={totalPrice}
                 className="input input-bordered  bg-white w-full   hover:shadow-xl"
                 {...register("totalPrice", {
                   required: {
@@ -114,6 +115,7 @@ const Bucks = () => {
                   },
                 })}
               />
+
               <label className="label">
                 {errors.totalPrice?.type === "required" && (
                   <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
@@ -141,11 +143,7 @@ const Bucks = () => {
               </label>
 
               {/* NID Number */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Phone Number
-                </span>
-              </label> */}
+
               <input
                 type="number"
                 placeholder="Your Nid Number"
@@ -165,11 +163,7 @@ const Bucks = () => {
                 )}
               </label>
               {/* number */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Phone Number
-                </span>
-              </label> */}
+
               <input
                 type="number"
                 placeholder="Phone Number"
@@ -189,9 +183,7 @@ const Bucks = () => {
                 )}
               </label>
               {/* date */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">Date</span>
-              </label> */}
+
               <input
                 type="date"
                 placeholder="Phone Number"
