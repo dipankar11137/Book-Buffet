@@ -39,7 +39,7 @@ const AddItem = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100%",
-        height: "1200px",
+        height: "1400px",
         // backgroundRepeat: "no-repeat",
         // width: "3000px",
       }}
@@ -284,6 +284,36 @@ const AddItem = () => {
               </span>
             )}
           </label>
+
+          {status === "Old" ? (
+            <>
+              <label className="label">
+                <span className="label-text text-white text-xl font-semibold">
+                  Book Booking Price
+                </span>
+              </label>
+              <input
+                type="number"
+                placeholder="Booking Price"
+                className="input input-bordered bg-white w-full    hover:shadow-xl shadow-inner"
+                {...register("bPrice", {
+                  required: {
+                    value: true,
+                    message: "Price is Required",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.price?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors?.price?.message}
+                  </span>
+                )}
+              </label>
+            </>
+          ) : (
+            <></>
+          )}
           {booksCategory ? (
             <input
               className="btn button mt-5 w-full disable text-white"
