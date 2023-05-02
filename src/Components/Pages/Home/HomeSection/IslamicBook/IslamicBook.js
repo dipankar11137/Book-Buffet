@@ -9,7 +9,7 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
     >
       <div className="indicator">
         <span className="indicator-item badge badge-danger">{status}</span>
-        <img className="h-72 w-72" src={img} alt="" />
+        <img className="h-72 w-72 rounded-lg" src={img} alt="" />
       </div>
       <div className="p-3 mt-3 ">
         <h1 className="text-2xl font-bold">{name}</h1>
