@@ -44,7 +44,7 @@ const Dashboard = () => {
                 }
               >
                 <Link
-                  to="/dashboard/manageItem"
+                  to="/dashboard/bookBooks"
                   className="font-bold text-xl hover:text-orange-600"
                 >
                   Book Books
