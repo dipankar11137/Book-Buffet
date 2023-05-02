@@ -66,7 +66,6 @@ const Buy = () => {
       className="flex justify-center h-screen bg-slate-700"
     >
       <div>
-        {/* <h1>change {change}</h1> */}
         <h1 className="text-4xl pt-5 font-extrabold ml-20">Buy Books</h1>
         <div className="flex justify-center ">
           <div
@@ -81,13 +80,9 @@ const Buy = () => {
             className=" w-96 bg-slate-300 rounded-lg shadow-2xl p-10 mt-10"
           >
             <form className="" onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-2xl font-bold text-center">{books?.name}</h1>
-              <label className="label">
-                <span className="label-text font-bold text-lime-700 text-2xl">
-                  {/* {bookServices?.name} */}
-                </span>
-              </label>
-              {/* Quantity */}
+              <h1 className="text-2xl font-bold text-center bg-white rounded-lg p-1 mb-4">
+                {books?.name}
+              </h1>
 
               <input
                 style={{ width: "400px" }}
@@ -124,11 +119,7 @@ const Buy = () => {
               </label>
 
               {/* number */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Phone Number
-                </span>
-              </label> */}
+
               <input
                 type="number"
                 placeholder="Phone Number"
@@ -148,9 +139,7 @@ const Buy = () => {
                 )}
               </label>
               {/* date */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">Date</span>
-              </label> */}
+
               <input
                 type="date"
                 placeholder="Phone Number"
@@ -180,11 +169,21 @@ const Buy = () => {
                 value={totalPrice}
                 className="input input-bordered text-center  bg-white w-full text-xl font-extrabold text-blue-700  hover:shadow-xl"
               />
-              <input
-                className="btn  w-full text-white mt-5"
-                type="submit"
-                value="Submit"
-              />
+
+              {quantity ? (
+                <input
+                  className="btn  w-full text-white mt-5"
+                  type="submit"
+                  value="Submit"
+                />
+              ) : (
+                <input
+                  disabled
+                  className="btn  w-full text-white mt-5"
+                  type="submit"
+                  value="Submit"
+                />
+              )}
             </form>
           </div>
         </div>
