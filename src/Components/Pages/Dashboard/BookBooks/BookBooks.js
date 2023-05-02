@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import BookBook from "./BookBook";
 
 const BookBooks = () => {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ const BookBooks = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);
+  console.log(products);
   const handleDelete = (id) => {
     //   const proceed = window.confirm("Are You Sure ?");
     //   if (proceed) {
@@ -29,31 +31,32 @@ const BookBooks = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table table-compact w-full">
+        <table className="table table-compact w-full text-center">
           <thead>
             <tr>
               <th></th>
               <th></th>
               <th>Name</th>
               <th>Books Category</th>
-              <th>Quantity</th>
-              <th>Price</th>
+              <th>Booking Day</th>
+              <th>Price/day</th>
               <th>Total Price</th>
               <th>Address</th>
-              <th>Status</th>
+              <th>Phone</th>
+              <th>Nid</th>
               <th>Date</th>
               <th>Remove</th>
             </tr>
           </thead>
           <tbody>
-            {/* {products.map((product, index) => (
-              <ManageItem
+            {products.map((product, index) => (
+              <BookBook
                 key={product._id}
                 product={product}
                 index={index + 1}
                 handleDelete={handleDelete}
-              ></ManageItem>
-            ))} */}
+              ></BookBook>
+            ))}
           </tbody>
         </table>
       </div>
