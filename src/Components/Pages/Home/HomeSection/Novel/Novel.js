@@ -18,18 +18,22 @@ const Novel = ({ product, handleBuy, handleBook }) => {
         <p>{date}</p>
       </div>
       <div class="middle  ">
-        <button
-          onClick={() => handleBook(_id)}
-          className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   "
-        >
-          {" "}
-          Book
-        </button>
+        {status === "Old" ? (
+          <button
+            onClick={() => handleBook(_id)}
+            className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   "
+          >
+            {" "}
+            Book
+          </button>
+        ) : (
+          <></>
+        )}
         <button
           onClick={() => handleBuy(_id)}
           className="w-full bg-slate-200 p-3 rounded-lg  uppercase font-bold mt-4"
         >
-          Buy
+          Buy Book
         </button>
       </div>
     </div>
