@@ -63,7 +63,7 @@ const Buy = () => {
       className="flex justify-center h-screen bg-slate-700"
     >
       <div>
-        <h1 className="text-4xl pt-5 font-extrabold ml-20">Buy Books</h1>
+        <h1 className="text-5xl pt-5 font-extrabold ml-28">Buy Books</h1>
         <div className="flex justify-center ">
           <div
             style={{

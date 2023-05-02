@@ -1,35 +1,27 @@
 import React from "react";
 
-const RecommendedBook = () => {
+const RecommendedBook = ({ product, handleBuy }) => {
+  const { _id, name, description, img } = product;
   return (
-    // <div className="card w-96 bg-base-100 shadow-xl image-full">
-    //   <figure>
-    //     <img
-    //       src="https://cdn-marketplacexyz.s3.ap-south-1.amazonaws.com/sheba_xyz/images/jpg/service-request.png"
-    //       alt="Shoes"
-    //     />
-    //   </figure>
-    //   <div className="card-body">
-    //     <h2 className="card-title">Shoes!</h2>
-    //     <p>If a dog chews shoes whose shoes does he choose?</p>
-    //     <div className="card-actions justify-end">
-    //       <button className="btn btn-primary">Buy Now</button>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="card w-96 glass">
+    <div className="card w-96 glass shadow-inner hover:shadow-2xl bg-lime-100 hover:bg-white">
       <figure>
         <img
-          className="w-full"
-          src="https://cdn-marketplacexyz.s3.ap-south-1.amazonaws.com/sheba_xyz/images/jpg/service-request.png"
+          style={{ height: "400px" }}
+          className="w-full rounded-lg"
+          src={img}
           alt="mal!"
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Life hack</h2>
-        <p>How to park your car at your garage?</p>
+        <h2 className="card-title">{name}</h2>
+        <p>{description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Learn now!</button>
+          <button
+            onClick={() => handleBuy(_id)}
+            className="w-full  p-3 rounded-lg  uppercase font-bold"
+          >
+            Buy
+          </button>
         </div>
       </div>
     </div>
