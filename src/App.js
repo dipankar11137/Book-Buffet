@@ -25,8 +25,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/createAccount" element={<CreateAccount />}></Route>
-        <Route path="/buy/:id" element={<Buy />}></Route>
-        <Route path="/bucks/:id" element={<Bucks />}></Route>
+        <Route
+          path="/buy/:id"
+          element={
+            <RequireAuth>
+              <Buy />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/bucks/:id"
+          element={
+            <RequireAuth>
+              <Bucks />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
 
@@ -46,7 +60,6 @@ function App() {
         </Route>
       </Routes>
 
-      {/* <Footer /> */}
       <ToastContainer />
     </div>
   );
