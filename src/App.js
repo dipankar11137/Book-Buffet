@@ -15,6 +15,7 @@ import ManageItems from "./Components/Pages/Dashboard/ManageItem/ManageItems";
 import Buy from "./Components/Pages/Home/Buy/Buy";
 import Bucks from "./Components/Pages/Home/Bucks/Bucks";
 import BookBooks from "./Components/Pages/Dashboard/BookBooks/BookBooks";
+import BuyBooks from "./Components/Pages/Dashboard/BuyBooks/BuyBooks";
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
           <Route index element={<AddItem />} />
           <Route path="manageItem" element={<ManageItems />} />
           <Route path="bookBooks" element={<BookBooks />} />
-          {/* <Route path="addJobs" element={<AddJobs />} /> */}
+          <Route path="buyBooks" element={<BuyBooks />} />
         </Route>
       </Routes>
 
