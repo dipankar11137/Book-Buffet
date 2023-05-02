@@ -99,7 +99,7 @@ const Navbar = () => {
       </div>
       {/* Image */}
       <div className="navbar-end">
-        <label
+        {/* <label
           onClick={handleBook}
           tabindex="0"
           className="btn btn-ghost btn-circle mr-3"
@@ -123,7 +123,7 @@ const Navbar = () => {
               {booking.length}
             </span>
           </div>
-        </label>
+        </label> */}
         {/* aii ... */}
         {user ? (
           <div className="dropdown dropdown-end  mr-5">
