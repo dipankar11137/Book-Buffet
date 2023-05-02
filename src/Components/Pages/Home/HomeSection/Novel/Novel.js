@@ -8,7 +8,6 @@ const Novel = ({ product, handleBuy, handleBook }) => {
       style={{ height: "500px", width: "296px" }}
       class="container bg-white shadow-inner"
     >
-      {/* <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%"> */}
       <img className="image " src={img} alt="" />
       <div className="text-center text-xl mt-5 testStyle">
         <h1 className="font-bold text-2xl">{name}</h1>

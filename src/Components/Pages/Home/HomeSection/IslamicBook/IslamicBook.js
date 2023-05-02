@@ -1,7 +1,7 @@
 import React from "react";
 
-const IslamicBook = ({ product }) => {
-  const { name, img, price, location, description, date, status } = product;
+const IslamicBook = ({ product, handleBuy, handleBook }) => {
+  const { _id, name, img, price, description, date, status } = product;
   return (
     <div
       style={{ height: "500px", width: "289px" }}
@@ -18,9 +18,29 @@ const IslamicBook = ({ product }) => {
         <p>{description}</p>
       </div>
 
-      <button className="w-full  p-3 rounded-lg  uppercase font-bold">
-        Book Now
-      </button>
+      {status === "Old" ? (
+        <div className="flex justify-between">
+          <button
+            onClick={() => handleBook(_id)}
+            className=" w-2/4 mr-1 p-3 rounded-lg  uppercase font-bold"
+          >
+            Book
+          </button>
+          <button
+            onClick={() => handleBuy(_id)}
+            className="w-2/4  p-3 rounded-lg  uppercase font-bold"
+          >
+            Buy
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => handleBuy(_id)}
+          className="w-full  p-3 rounded-lg  uppercase font-bold"
+        >
+          Buy
+        </button>
+      )}
     </div>
   );
 };
