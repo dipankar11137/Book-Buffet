@@ -11,10 +11,10 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
         <span className="indicator-item badge badge-danger">{status}</span>
         <img className="h-72 w-72" src={img} alt="" />
       </div>
-      <div className="p-3 mt-5 ">
-        <h1>{name}</h1>
-        <p>{price}</p>
-        <p>{date}</p>
+      <div className="p-3 mt-3 ">
+        <h1 className="text-2xl font-bold">{name}</h1>
+        <p className="text-xl font-semibold">Price : ৳{price}</p>
+        <p>Production date: {date}</p>
         <p>{description}</p>
       </div>
 
