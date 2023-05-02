@@ -7,7 +7,7 @@ const RecommendedBook = ({ product, handleBuy }) => {
       <figure>
         <img
           style={{ height: "400px" }}
-          className="w-full rounded-lg"
+          className="w-full rounded-lg pic-style cursor-pointer"
           src={img}
           alt="mal!"
         />
