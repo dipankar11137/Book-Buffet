@@ -1,10 +1,34 @@
 import React from "react";
 
-const BuyBook = () => {
+const BuyBook = ({ product, index, handleDelete }) => {
   return (
-    <div>
-      <h1>books</h1>
-    </div>
+    <tr>
+      <th>{index}</th>
+      <th>
+        <img
+          className="h-10 w-10 rounded-full"
+          src={product?.bookInfo?.img}
+          alt=""
+        />
+      </th>
+      <td>{product?.bookInfo?.name}</td>
+      <td>{product?.bookInfo?.booksCategory}</td>
+      <td>{product?.quantity}</td>
+      <td>{product?.bookInfo?.price}</td>
+      <td>{product?.totalPrice}</td>
+      <td>{product?.address}</td>
+      <td>{product?.phone}</td>
+      <td>{product?.date}</td>
+      <td>
+        {" "}
+        <button
+          onClick={() => handleDelete(product?._id)}
+          className="btn-sm rounded-lg bg-red-800 text-white uppercase"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
   );
 };
 

@@ -29,7 +29,7 @@ const Buy = () => {
   };
   const onSubmit = (data) => {
     const updateData = {
-      books,
+      bookInfo: books,
       ...data,
       quantity,
       totalPrice,
