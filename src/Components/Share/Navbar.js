@@ -26,37 +26,13 @@ const Navbar = () => {
 
   const menuItems = (
     <>
-      {/* <li className="font-bold hover:text-orange-400  text-xl">
-        <Link to="/">
-          <FaHome />
-        </Link>
-      </li> */}
-      {/* <li className="font-bold hover:text-orange-400">
-        <Link to="/blogs">Blogs</Link>
-      </li>
-      {user && (
-        <li className="font-bold hover:text-orange-400">
-          <Link to="/myOrders">My Orders</Link>
-        </li>
-      )}
-      <li className="font-bold hover:text-orange-400">
-        <Link to="/showAllReview">Reviews</Link>
-      </li> */}
-
-      {user && (
+      {user?.email === "abc@def.com" ? (
         <li className="font-bold hover:text-orange-400">
           <Link to="/dashboard">Dashboard</Link>
         </li>
+      ) : (
+        <></>
       )}
-      {/* <li className=" font-bold">
-        {user ? (
-          <button className=" font-bold" onClick={logout}>
-            Sign Out
-          </button>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
-      </li> */}
     </>
   );
   return (

@@ -4,12 +4,17 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
   const { _id, name, img, price, description, date, status } = product;
   return (
     <div
-      style={{ height: "500px", width: "289px" }}
+      style={{ height: "500px", width: "350px" }}
       className=" bg-slate-100 rounded-xl shadow-2xl hover:bg-pink-100 hover:shadow-inner"
     >
       <div className="indicator">
         <span className="indicator-item badge badge-danger">{status}</span>
-        <img className="h-72 w-72 rounded-lg" src={img} alt="" />
+        <img
+          style={{ width: "350px" }}
+          className="h-72  rounded-lg"
+          src={img}
+          alt=""
+        />
       </div>
       <div className="p-3 mt-3 ">
         <h1 className="text-2xl font-bold">{name}</h1>
