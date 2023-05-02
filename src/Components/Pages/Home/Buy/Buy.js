@@ -27,17 +27,13 @@ const Buy = () => {
     setQuantity(e.target.value);
   };
   const onSubmit = (data) => {
-    console.log(data);
-    // const updateData = {
-    //   ...data,
-    //   img: img,
-    //   name: name,
-    //   service: service,
-    //   price: price,
-    //   customerName: customerName,
-    //   email: email,
-    // };
-    // // console.log(updateData);
+    const updateData = {
+      books,
+      ...data,
+      quantity,
+      totalPrice,
+    };
+    console.log(updateData);
     // const url = `http://localhost:5000/bookService`;
     // fetch(url, {
     //   method: "POST",
