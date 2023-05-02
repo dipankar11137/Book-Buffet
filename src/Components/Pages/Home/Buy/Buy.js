@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Buy = () => {
   const { id } = useParams();
@@ -34,19 +35,19 @@ const Buy = () => {
       totalPrice,
     };
     console.log(updateData);
-    // const url = `http://localhost:5000/bookService`;
-    // fetch(url, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(updateData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     toast.success("Successfully Book This Person");
-    //     reset();
-    //   });
+    const url = `http://localhost:5000/buyBooks`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        toast.success("Successfully Buy This Book");
+        reset();
+      });
   };
 
   return (
