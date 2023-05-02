@@ -12,21 +12,20 @@ const BookBooks = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);
-  console.log(products);
   const handleDelete = (id) => {
-    //   const proceed = window.confirm("Are You Sure ?");
-    //   if (proceed) {
-    //     const url = `http://localhost:5000/books/${id}`;
-    //     fetch(url, {
-    //       method: "DELETE",
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         const remaining = products.filter((product) => product._id !== id);
-    //         setProducts(remaining);
-    //         toast.success("Delete Successfully ");
-    //       });
-    //   }
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      const url = `http://localhost:5000/bookingsBook/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+          toast.success("Delete Successfully ");
+        });
+    }
   };
   return (
     <div>
