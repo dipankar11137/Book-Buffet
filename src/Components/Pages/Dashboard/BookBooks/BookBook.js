@@ -26,7 +26,7 @@ const BookBook = ({ product, index, handleDelete }) => {
           onClick={() => handleDelete(product?._id)}
           className="btn-sm rounded-lg bg-red-800 text-white uppercase"
         >
-          Delete
+          delivered
         </button>
       </td>
     </tr>

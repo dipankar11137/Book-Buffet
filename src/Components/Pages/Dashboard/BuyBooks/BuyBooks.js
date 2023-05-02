@@ -14,19 +14,19 @@ const BuyBooks = () => {
   }, [products]);
   console.log(products);
   const handleDelete = (id) => {
-    //   const proceed = window.confirm("Are You Sure ?");
-    //   if (proceed) {
-    //     const url = `http://localhost:5000/bookingsBook/${id}`;
-    //     fetch(url, {
-    //       method: "DELETE",
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         const remaining = products.filter((product) => product._id !== id);
-    //         setProducts(remaining);
-    //         toast.success("Delete Successfully ");
-    //       });
-    //   }
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      const url = `http://localhost:5000/buyBooks/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+          toast.success("Delivered Successfully ");
+        });
+    }
   };
   return (
     <div>
@@ -44,7 +44,7 @@ const BuyBooks = () => {
               <th>Address</th>
               <th>Phone</th>
               <th>Date</th>
-              <th>Remove</th>
+              <th>delivered</th>
             </tr>
           </thead>
           <tbody>

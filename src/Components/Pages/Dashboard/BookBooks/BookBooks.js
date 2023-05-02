@@ -23,7 +23,7 @@ const BookBooks = () => {
         .then((data) => {
           const remaining = products.filter((product) => product._id !== id);
           setProducts(remaining);
-          toast.success("Delete Successfully ");
+          toast.success("Delivered Successfully ");
         });
     }
   };
@@ -44,7 +44,7 @@ const BookBooks = () => {
               <th>Phone</th>
               <th>Nid</th>
               <th>Date</th>
-              <th>Remove</th>
+              <th>delivered</th>
             </tr>
           </thead>
           <tbody>
