@@ -25,7 +25,7 @@ const Bucks = () => {
     const updateData = {
       ...data,
       bookInfo: books,
-      totalBookingPrice: totalPrice,
+      totalPrice,
       bookingDay: bookingDay,
     };
     console.log(updateData);
@@ -86,6 +86,22 @@ const Bucks = () => {
                 <option className="text-lg text-blue-900 font-bold">2</option>
                 <option className="text-lg text-blue-900 font-bold">3</option>
                 <option className="text-lg text-blue-900 font-bold">4</option>
+                <option className="text-lg text-blue-900 font-bold">5</option>
+                <option className="text-lg text-blue-900 font-bold">6</option>
+                <option className="text-lg text-blue-900 font-bold">7</option>
+                <option className="text-lg text-blue-900 font-bold">8</option>
+                <option className="text-lg text-blue-900 font-bold">9</option>
+                <option className="text-lg text-blue-900 font-bold">10</option>
+                <option className="text-lg text-blue-900 font-bold">11</option>
+                <option className="text-lg text-blue-900 font-bold">12</option>
+                <option className="text-lg text-blue-900 font-bold">13</option>
+                <option className="text-lg text-blue-900 font-bold">14</option>
+                <option className="text-lg text-blue-900 font-bold">15</option>
+                <option className="text-lg text-blue-900 font-bold">16</option>
+                <option className="text-lg text-blue-900 font-bold">17</option>
+                <option className="text-lg text-blue-900 font-bold">18</option>
+                <option className="text-lg text-blue-900 font-bold">19</option>
+                <option className="text-lg text-blue-900 font-bold">20</option>
               </select>
 
               <label className="label">
@@ -185,12 +201,21 @@ const Bucks = () => {
                 value={totalPrice}
                 className="input input-bordered mb-3  bg-white w-full   hover:shadow-xl text-xl font-bold text-center"
               />
-
-              <input
-                className="btn  w-full text-white mt-5"
-                type="submit"
-                value="Submit"
-              />
+              {/* SUbmit */}
+              {bookingDay ? (
+                <input
+                  className="btn  w-full text-white mt-5"
+                  type="submit"
+                  value="Submit"
+                />
+              ) : (
+                <input
+                  disabled
+                  className="btn  w-full text-white mt-5"
+                  type="submit"
+                  value="Submit"
+                />
+              )}
             </form>
           </div>
         </div>
