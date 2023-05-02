@@ -1,15 +1,31 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 
 const Buy = () => {
+  const { id } = useParams();
+  const [books, setBooks] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/book/${id}`)
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, [id]);
+
+  const totalPrice = quantity * books?.price;
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
-  const [change, setChange] = useState(0);
+
+  const handleOnChange = (e) => {
+    setQuantity(e.target.value);
+  };
   const onSubmit = (data) => {
     console.log(data);
     // const updateData = {
@@ -36,6 +52,7 @@ const Buy = () => {
     //     reset();
     //   });
   };
+
   return (
     <div
       style={{
@@ -64,32 +81,20 @@ const Buy = () => {
             className=" w-96 bg-slate-300 rounded-lg shadow-2xl p-10 mt-10"
           >
             <form className="" onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-2xl font-bold text-center">
-                {/* {appleProduct?.name} */}
-              </h1>
+              <h1 className="text-2xl font-bold text-center">{books?.name}</h1>
               <label className="label">
                 <span className="label-text font-bold text-lime-700 text-2xl">
                   {/* {bookServices?.name} */}
                 </span>
               </label>
               {/* Quantity */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Your Quantity
-                </span>
-              </label> */}
+
               <input
-                style={{ width: "350px" }}
-                onChange={(e) => setChange(e.target.quantity)}
+                style={{ width: "400px" }}
+                onChange={handleOnChange}
                 type="number"
                 placeholder="Write Your Quantity"
                 className="input input-bordered  bg-white w-full   hover:shadow-xl"
-                {...register("quantity", {
-                  required: {
-                    value: true,
-                    message: "Quantity is Required",
-                  },
-                })}
               />
               <label className="label">
                 {errors.quantity?.type === "required" && (
@@ -98,30 +103,7 @@ const Buy = () => {
                   </span>
                 )}
               </label>
-              {/* Price */}
-              {/* <label className="label">
-                <span className="label-text text-2xl font-semibold">
-                  Total Price
-                </span>
-              </label> */}
-              <input
-                type="number"
-                placeholder="Total Price"
-                className="input input-bordered  bg-white w-full   hover:shadow-xl"
-                {...register("totalPrice", {
-                  required: {
-                    value: true,
-                    message: "totalPrice is Required",
-                  },
-                })}
-              />
-              <label className="label">
-                {errors.totalPrice?.type === "required" && (
-                  <span className="label-text-alt text-xl text-white rounded-xl bg-red-700 p-1 w-full">
-                    {errors?.totalPrice?.message}
-                  </span>
-                )}
-              </label>
+
               <textarea
                 type="text"
                 placeholder="Your Address"
@@ -187,7 +169,17 @@ const Buy = () => {
                   </span>
                 )}
               </label>
+              {/* Price */}
 
+              <h1 className="text-center bg-white rounded-lg mb-2 p-1 font-bold text-2xl">
+                Total Price
+              </h1>
+
+              <input
+                type="number"
+                value={totalPrice}
+                className="input input-bordered text-center  bg-white w-full text-xl font-extrabold text-blue-700  hover:shadow-xl"
+              />
               <input
                 className="btn  w-full text-white mt-5"
                 type="submit"
