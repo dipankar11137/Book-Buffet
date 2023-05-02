@@ -1,7 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
+
+  const handleButtonClick = (button) => {
+    setSelectedButton(button);
+  };
   return (
     <div className="bg-slate-100">
       <div>
@@ -17,7 +23,14 @@ const Dashboard = () => {
           <div className="drawer-side ">
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="menu p-4 overflow-y-auto w-56 bg-slate-900  text-white">
-              <li>
+              <li
+                onClick={() => handleButtonClick("Button 1")}
+                className={
+                  selectedButton === "Button 1"
+                    ? "bg-white text-black rounded-lg"
+                    : ""
+                }
+              >
                 <Link
                   to="/dashboard"
                   className="font-bold  text-xl hover:text-orange-600"
@@ -25,7 +38,14 @@ const Dashboard = () => {
                   Add Books
                 </Link>
               </li>
-              <li>
+              <li
+                onClick={() => handleButtonClick("Button 2")}
+                className={
+                  selectedButton === "Button 2"
+                    ? "bg-white text-black rounded-lg mt-3"
+                    : ""
+                }
+              >
                 <Link
                   to="/dashboard/manageItem"
                   className="font-bold text-xl hover:text-orange-600"

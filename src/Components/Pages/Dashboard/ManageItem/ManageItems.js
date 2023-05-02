@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ManageItem from "./ManageItem";
+import { toast } from "react-toastify";
 
 const ManageItems = () => {
   const [products, setProducts] = useState([]);
@@ -8,7 +9,22 @@ const ManageItems = () => {
     fetch("http://localhost:5000/books")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are You Sure ?");
+    if (proceed) {
+      const url = `http://localhost:5000/books/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const remaining = products.filter((product) => product._id !== id);
+          setProducts(remaining);
+          toast.success("Delete Successfully ");
+        });
+    }
+  };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -31,6 +47,7 @@ const ManageItems = () => {
                 key={product._id}
                 product={product}
                 index={index + 1}
+                handleDelete={handleDelete}
               ></ManageItem>
             ))}
           </tbody>
