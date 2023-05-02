@@ -3,11 +3,8 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-  const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedButton, setSelectedButton] = useState("Button 1");
 
-  const handleButtonClick = (button) => {
-    setSelectedButton(button);
-  };
   return (
     <div className="bg-slate-100">
       <div>
@@ -24,7 +21,7 @@ const Dashboard = () => {
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="menu p-4 overflow-y-auto w-56 bg-slate-900  text-white">
               <li
-                onClick={() => handleButtonClick("Button 1")}
+                onClick={() => setSelectedButton("Button 1")}
                 className={
                   selectedButton === "Button 1"
                     ? "bg-white text-black rounded-lg"
@@ -39,9 +36,39 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li
-                onClick={() => handleButtonClick("Button 2")}
+                onClick={() => setSelectedButton("Button 2")}
                 className={
                   selectedButton === "Button 2"
+                    ? "bg-white text-black rounded-lg mt-3"
+                    : ""
+                }
+              >
+                <Link
+                  to="/dashboard/manageItem"
+                  className="font-bold text-xl hover:text-orange-600"
+                >
+                  Book Books
+                </Link>
+              </li>
+              <li
+                onClick={() => setSelectedButton("Button 3")}
+                className={
+                  selectedButton === "Button 3"
+                    ? "bg-white text-black rounded-lg mt-3"
+                    : ""
+                }
+              >
+                <Link
+                  to="/dashboard/manageItem"
+                  className="font-bold text-xl hover:text-orange-600"
+                >
+                  Buy Books
+                </Link>
+              </li>
+              <li
+                onClick={() => setSelectedButton("Button 4")}
+                className={
+                  selectedButton === "Button 4"
                     ? "bg-white text-black rounded-lg mt-3"
                     : ""
                 }
