@@ -29,7 +29,7 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
             onClick={() => handleBook(_id)}
             className=" w-2/4 mr-1 p-3 rounded-lg  uppercase font-bold"
           >
-            Book
+            Borrow
           </button>
           <button
             onClick={() => handleBuy(_id)}

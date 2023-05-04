@@ -23,7 +23,7 @@ const Novel = ({ product, handleBuy, handleBook }) => {
             className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   "
           >
             {" "}
-            Book
+            Borrow
           </button>
         ) : (
           <></>

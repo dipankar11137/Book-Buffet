@@ -57,7 +57,11 @@ const Bucks = () => {
       className="flex justify-center h-screen bg-slate-700"
     >
       <div>
-        <h1 className="text-4xl pt-5 font-extrabold ml-20">Book Booking</h1>
+        <h1 className="text-center mt-3 text-xl text-red-600 font-semibold ">
+          Note: Borrowing secondhand books,
+          <br /> your profile picture must match your NID card picture and name
+        </h1>
+        <h1 className="text-4xl pt-5 font-extrabold ml-40">Borrow Book</h1>
         <div className="flex justify-center ">
           <div
             style={{
@@ -76,8 +80,9 @@ const Bucks = () => {
               </h1>
 
               <select
+                style={{ width: "500px" }}
                 onChange={(e) => setBookingDay(e.target.value)}
-                className="select select-primary w-96 "
+                className="select select-primary "
               >
                 <option className="text-lg font-bold " disabled selected>
                   Select Your Bookings Days
