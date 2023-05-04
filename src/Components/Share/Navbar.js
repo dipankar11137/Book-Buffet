@@ -4,10 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 import { FaHome } from "react-icons/fa";
+import logo from "../../Images/logo/bokk .png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
+  console.log("email", email);
   const navigate = useNavigate();
   const [booking, setBooking] = useState([]);
   const logout = () => {
@@ -15,10 +17,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    fetch(`https://boxberry.onrender.com/carBooking/${email}`)
+    fetch(`http://localhost:5000/users/${email}`)
       .then((res) => res.json())
       .then((data) => setBooking(data));
-  }, [booking]);
+  }, []);
+  console.log(booking);
 
   const handleBook = () => {
     navigate("/myOrders");
@@ -66,8 +69,7 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost normal-case font-bold lg:text-3xl  sm:text-sm text-amber-500"
         >
-          <img className="h-12 mr-2" src="" alt="" />
-          Logo/name
+          <img className="h-12 mr-2 rounded-2xl ml-24" src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex lg:pr-36 ml-40">

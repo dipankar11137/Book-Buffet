@@ -33,25 +33,31 @@ const CreateAccount = () => {
     navigate("/");
   }
 
-  const createDBUser = (name, email) => {
-    fetch(`http://localhost:5000/create-user/${email}`, {
+  const createDBUser = (data) => {
+    const updateData = {
+      name: data?.name,
+      email: data?.email,
+      img: data?.photo,
+    };
+    fetch(`http://localhost:5000/create-user/${data?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ updateData }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
+    // console.log(data);
   };
 
   const onSubmit = (data) => {
-    // console.log(data.email, data.password, data.name);
+    createDBUser(data);
     createUserWithEmailAndPassword(data.email, data.password);
+    signInWithGoogle(data.email, data.password);
     updateProfile({ displayName: data.name });
-    createDBUser(data.name, data.email);
     toast.success("Updated profile");
     navigate("/");
   };
@@ -67,7 +73,7 @@ const CreateAccount = () => {
       }}
       className="flex justify-center  bg-slate-700"
     >
-      <div className="flex justify-center items-center  mt-4">
+      <div className="flex justify-center items-center  mt-4 ">
         <div
           style={{
             backgroundImage: `url("https://img.freepik.com/premium-psd/black-white-glow-dust-particle-abstract-background_35672-1431.jpg")`,
@@ -91,7 +97,7 @@ const CreateAccount = () => {
                   style={{ width: "400px" }}
                   type="text"
                   placeholder="Your name"
-                  className="input input-bordered bg-white w-full   "
+                  className="input input-bordered bg-white w-full  text-black "
                   {...register("name", {
                     required: {
                       value: true,
@@ -115,7 +121,7 @@ const CreateAccount = () => {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered bg-white w-full   "
+                  className="input input-bordered bg-white w-full  text-black "
                   {...register("email", {
                     required: {
                       value: true,
@@ -148,7 +154,7 @@ const CreateAccount = () => {
                 <input
                   type="phone"
                   placeholder="Write Your Phone Number"
-                  className="input input-bordered bg-white w-full   "
+                  className="input input-bordered bg-white w-full   text-black"
                   {...register("phone", {
                     required: {
                       value: true,
@@ -172,7 +178,7 @@ const CreateAccount = () => {
                 <input
                   type="text"
                   placeholder="Your Phone URL"
-                  className="input input-bordered bg-white w-full   "
+                  className="input input-bordered bg-white w-full   text-black"
                   {...register("photo", {
                     required: {
                       value: true,
