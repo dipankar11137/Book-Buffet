@@ -82,7 +82,7 @@ const Login = () => {
                   style={{ width: "400px" }}
                   type="email"
                   placeholder="Your Email"
-                  className="input input-bordered bg-white  w-96 "
+                  className="input input-bordered bg-white  w-96 text-black"
                   {...register("email", {
                     required: {
                       value: true,
