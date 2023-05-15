@@ -3,10 +3,14 @@ import "../../CSS/Test.css";
 
 const Test = () => {
   return (
-    <div className="test mt-10">
-      <h1 className="textH1" data-text="BookBuffet">
-        BookBuffet
-      </h1>
+    <div className="flex justify-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter font-extrabold"> BookBuffet</h3>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
