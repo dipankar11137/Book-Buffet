@@ -7,7 +7,7 @@ const Test = () => {
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h3 class="animate-charcter font-extrabold "> BookBuffet</h3>
+            <h3 class="animate-character font-extrabold "> BookBuffet</h3>
           </div>
         </div>
       </div>

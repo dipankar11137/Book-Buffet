@@ -1,4 +1,4 @@
-.animate-charcter {
+.animate-character {
   /* text-transform: uppercase; */
   background-image: linear-gradient(
     -225deg,
@@ -15,12 +15,12 @@
   text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
+  animation: textClip 2s linear infinite;
   display: inline-block;
   font-size: 150px;
 }
 
-@keyframes textclip {
+@keyframes textClip {
   to {
     background-position: 200% center;
   }
