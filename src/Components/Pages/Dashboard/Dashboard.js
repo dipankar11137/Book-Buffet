@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
@@ -47,7 +46,7 @@ const Dashboard = () => {
                   to="/dashboard/bookBooks"
                   className="font-bold text-xl hover:text-orange-600"
                 >
-                  Book Books
+                  Borrow Books
                 </Link>
               </li>
               <li
