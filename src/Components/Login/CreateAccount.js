@@ -1,15 +1,13 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import React from "react";
+import React from 'react';
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
-} from "react-firebase-hooks/auth";
-import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import auth from "../../firebase.init";
-import login from "../../Images/Login/login.jpg";
+} from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 const CreateAccount = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -18,7 +16,7 @@ const CreateAccount = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-
+  const imageHostKey = '39899c0cdbfbe66a2dbde3818a91832c';
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
@@ -26,50 +24,64 @@ const CreateAccount = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || '/';
 
   let signInError;
   if (gUser) {
-    navigate("/");
+    navigate('/');
   }
 
-  const createDBUser = (data) => {
-    const updateData = {
-      name: data?.name,
-      email: data?.email,
-      img: data?.photo,
-    };
-    fetch(`http://localhost:5000/create-user/${data?.email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ updateData }),
+  const createDBUser = data => {
+    const image = data.image[0];
+
+    const formData = new FormData();
+    formData.append('image', image);
+    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`;
+    fetch(url, {
+      method: 'POST',
+      body: formData,
     })
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
+      .then(res => res.json())
+      .then(imageData => {
+        const image = imageData.data.url;
+
+        const updateData = {
+          name: data?.name,
+          email: data?.email,
+          img: image,
+        };
+        fetch(`http://localhost:5000/create-user/${data?.email}`, {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({ updateData }),
+        })
+          .then(res => res.json())
+          .then(data => {
+            toast.success('Updated profile');
+            navigate('/');
+          });
       });
+
     // console.log(data);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     createDBUser(data);
     createUserWithEmailAndPassword(data.email, data.password);
     signInWithGoogle(data.email, data.password);
     updateProfile({ displayName: data.name });
-    toast.success("Updated profile");
-    navigate("/");
   };
   return (
     <div
       style={{
         backgroundImage: `url("https://png.pngtree.com/background/20210714/original/pngtree-abstract-particles-background-with-geometric-connection-concept-vector-illustration-picture-image_1233144.jpg")`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-        height: "100vp",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: '100vp',
       }}
       className="flex justify-center  bg-slate-700"
     >
@@ -77,11 +89,11 @@ const CreateAccount = () => {
         <div
           style={{
             backgroundImage: `url("https://img.freepik.com/premium-psd/black-white-glow-dust-particle-abstract-background_35672-1431.jpg")`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            width: "100%",
-            height: "100vp",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+            height: '100vp',
           }}
           className="card w-96 shadow-2xl bg-violet-200"
         >
@@ -94,19 +106,19 @@ const CreateAccount = () => {
                   <span className="label-text text-white">Name</span>
                 </label>
                 <input
-                  style={{ width: "400px" }}
+                  style={{ width: '400px' }}
                   type="text"
                   placeholder="Your name"
                   className="input input-bordered bg-white w-full  text-black "
-                  {...register("name", {
+                  {...register('name', {
                     required: {
                       value: true,
-                      message: "Name is Required",
+                      message: 'Name is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.name?.type === "required" && (
+                  {errors.name?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.name.message}
                     </span>
@@ -122,24 +134,24 @@ const CreateAccount = () => {
                   type="email"
                   placeholder="Your Email"
                   className="input input-bordered bg-white w-full  text-black "
-                  {...register("email", {
+                  {...register('email', {
                     required: {
                       value: true,
-                      message: "Email is Required",
+                      message: 'Email is Required',
                     },
                     pattern: {
                       value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                      message: "Provide a valid Email",
+                      message: 'Provide a valid Email',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.email?.type === "required" && (
+                  {errors.email?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.email.message}
                     </span>
                   )}
-                  {errors.email?.type === "pattern" && (
+                  {errors.email?.type === 'pattern' && (
                     <span className="label-text-alt text-red-500">
                       {errors.email.message}
                     </span>
@@ -155,15 +167,15 @@ const CreateAccount = () => {
                   type="phone"
                   placeholder="Write Your Phone Number"
                   className="input input-bordered bg-white w-full   text-black"
-                  {...register("phone", {
+                  {...register('phone', {
                     required: {
                       value: true,
-                      message: "Phone is Required",
+                      message: 'Phone is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.phone?.type === "required" && (
+                  {errors.phone?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.phone.message}
                     </span>
@@ -171,29 +183,32 @@ const CreateAccount = () => {
                 </label>
               </div>
               {/* photo */}
-              <div className="form-control w-full   ">
+              <div className="form-control w-full ">
                 <label className="label">
-                  <span className="label-text text-white">Image</span>
+                  <span className="label-text text-white">
+                    Input Your Image{' '}
+                  </span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="Your Phone URL"
-                  className="input input-bordered bg-white w-full   text-black"
-                  {...register("photo", {
+                  type="file"
+                  placeholder="Your Image"
+                  className="input input-bordered text-black w-96 pt-2 sm:w-full   hover:shadow-xl shadow-inner"
+                  {...register('image', {
                     required: {
                       value: true,
-                      message: "Photo is Required",
+                      message: 'Image is Required',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.photo?.type === "required" && (
+                  {errors.image?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
-                      {errors.photo.message}
+                      {errors?.image?.message}
                     </span>
                   )}
                 </label>
               </div>
+              {/* password */}
               <div className="form-control w-full   ">
                 <label className="label">
                   <span className="label-text text-white">Password</span>
@@ -202,24 +217,24 @@ const CreateAccount = () => {
                   type="password"
                   placeholder="Password"
                   className="input input-bordered text-black font-bold bg-white w-full   "
-                  {...register("password", {
+                  {...register('password', {
                     required: {
                       value: true,
-                      message: "Password is Required",
+                      message: 'Password is Required',
                     },
                     minLength: {
                       value: 6,
-                      message: "Must be 6 characters or longer",
+                      message: 'Must be 6 characters or longer',
                     },
                   })}
                 />
                 <label className="label">
-                  {errors.password?.type === "required" && (
+                  {errors.password?.type === 'required' && (
                     <span className="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
                   )}
-                  {errors.password?.type === "minLength" && (
+                  {errors.password?.type === 'minLength' && (
                     <span className="label-text-alt text-red-500">
                       {errors.password.message}
                     </span>
