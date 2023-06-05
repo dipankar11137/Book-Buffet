@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from 'react-firebase-hooks/auth';
@@ -11,6 +12,7 @@ import auth from '../../firebase.init';
 
 const CreateAccount = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const {
     register,
     formState: { errors },
@@ -71,6 +73,7 @@ const CreateAccount = () => {
     createDBUser(data);
     createUserWithEmailAndPassword(data.email, data.password);
     signInWithGoogle(data.email, data.password);
+    signInWithEmailAndPassword(data.email, data.password);
     updateProfile({ displayName: data.name });
   };
   return (
