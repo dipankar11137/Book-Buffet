@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
-import { signOut } from "firebase/auth";
-import { FaHome } from "react-icons/fa";
-import logo from "../../Images/logo/bokk .png";
+import { signOut } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../Images/logo/bokk .png';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
-  console.log("email", user);
+  console.log('email', user);
   const navigate = useNavigate();
   const [booking, setBooking] = useState([]);
   const logout = () => {
@@ -18,18 +17,18 @@ const Navbar = () => {
 
   useEffect(() => {
     fetch(`http://localhost:5000/user/${email}`)
-      .then((res) => res.json())
-      .then((data) => setBooking(data));
+      .then(res => res.json())
+      .then(data => setBooking(data));
   }, [email]);
   console.log(booking[0]);
 
   const handleBook = () => {
-    navigate("/myOrders");
+    navigate('/myOrders');
   };
 
   const menuItems = (
     <>
-      {user?.email === "abc@def.com" ? (
+      {user?.email === 'abc@def.com' ? (
         <li className="font-bold hover:text-orange-400">
           <Link to="/dashboard">Dashboard</Link>
         </li>
@@ -39,7 +38,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="  navbar dark:bg-gray-800 dark:border-gray-700  text-white ">
+    <div className="  navbar bg-gray-800 border-gray-700  text-white ">
       <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
