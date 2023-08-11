@@ -35,14 +35,14 @@ const Payment = () => {
   return (
     <div className="flex justify-center ">
       <div>
-        <div className="bg-pink-700 w-[500px] h-[650px]">
+        <div className="bg-pink-700 w-[500px] h-[650px] rounded-lg">
           <img
             className="pt-2"
             src="https://raw.githubusercontent.com/Shipu/bkash-example/master/bkash_payment_logo.png"
             alt=""
           />
           <div className="mx-[50px] w-[400] h-[150px] shadow-black shadow-md mt-5 text-white text-xl pt-8 pl-4">
-            <h1>Merchant : BLOODBANK.COM</h1>
+            <h1>Merchant : BOOKBUFFET.COM</h1>
             <h1>Invoice No : {buyProduct?._id}</h1>
             <h1>Amount : {buyProduct?.totalPrice}</h1>
           </div>
@@ -121,7 +121,7 @@ const Payment = () => {
                     <label
                       onClick={handleVCode}
                       htmlFor="my_modal_8"
-                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
+                      className="bg-lime-400 px-4 text-black font-bold py-2 rounded-lg hover:bg-lime-500 cursor-pointer"
                     >
                       Done
                     </label>
@@ -129,7 +129,7 @@ const Payment = () => {
                   <div className="modal-action">
                     <label
                       htmlFor="my_modal_8"
-                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
+                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
                     >
                       Cancel
                     </label>
