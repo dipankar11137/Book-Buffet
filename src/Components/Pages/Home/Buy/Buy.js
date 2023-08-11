@@ -4,12 +4,13 @@ import { useForm } from 'react-hook-form';
 import { FaArrowDown } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import ReactToPdf from 'react-to-pdf';
+import { toast } from 'react-toastify';
 import auth from '../../../../firebase.init';
 import Payment from './Payment';
 
 const Buy = () => {
   const [users] = useAuthState(auth);
-  console.log(users);
+  // console.log(users);
   const { id } = useParams();
   const [books, setBooks] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -57,19 +58,19 @@ const Buy = () => {
       name: users?.displayName,
     };
     console.log(updateData);
-    // const url = `http://localhost:5000/buyBooks`;
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify(updateData),
-    // })
-    //   .then(res => res.json())
-    //   .then(result => {
-    //     toast.success('Successfully Buy This Book');
-    //     reset();
-    //   });
+    const url = `http://localhost:5000/buyBooks`;
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then(res => res.json())
+      .then(result => {
+        toast.success('Successfully Buy This Book');
+        reset();
+      });
   };
   // pdf
 
