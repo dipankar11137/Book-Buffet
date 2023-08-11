@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { FaArrowDown } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+import ReactToPdf from 'react-to-pdf';
 import auth from '../../../../firebase.init';
 import Payment from './Payment';
 
@@ -70,6 +71,13 @@ const Buy = () => {
     //     reset();
     //   });
   };
+  // pdf
+
+  const cardRef = React.useRef();
+
+  const pdfFilename = users?.displayName
+    ? `${users?.displayName}.pdf`
+    : 'document.pdf';
 
   return (
     <div
@@ -90,7 +98,10 @@ const Buy = () => {
         <div className="flex justify-center gap-x-20">
           {/* Show Data */}
           <div>
-            <div className="mt-10 bg-white w-[600px] h-[550px] p-5 rounded-lg shadow-2xl text-end  ">
+            <div
+              ref={cardRef}
+              className="mt-10 bg-white w-[600px] h-[550px] p-5 rounded-lg shadow-2xl text-end  "
+            >
               <div className="text-2xl ">
                 <div className="flex items-baseline justify-between mt-1">
                   <p className="font-bold w-1/3">Product Name :</p>
@@ -146,9 +157,16 @@ const Buy = () => {
               </div>
             </div>
             <div className="mt-5 flex justify-center">
-              <button className="btn  shadow-2xl shadow-black text-white text-xl">
-                Download Pdf <FaArrowDown className="ml-3 animate-bounce" />
-              </button>
+              <ReactToPdf targetRef={cardRef} filename={pdfFilename}>
+                {({ toPdf }) => (
+                  <button
+                    onClick={toPdf}
+                    className="btn  shadow-2xl shadow-black text-white text-xl"
+                  >
+                    Download Pdf <FaArrowDown className="ml-3 animate-bounce" />
+                  </button>
+                )}
+              </ReactToPdf>
             </div>
           </div>
 
