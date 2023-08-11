@@ -41,7 +41,7 @@ const Card = () => {
         <figure>
           <img
             className="h-40 w-56 rounded-2xl pr-1"
-            src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/91UOBCuPQWL.jpg"
+            src="https://m.media-amazon.com/images/I/71OWnsc8P8L._AC_UF1000,1000_QL80_.jpg"
             alt="Book"
           />
         </figure>
