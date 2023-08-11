@@ -12,6 +12,8 @@ const Buy = () => {
   const [quantity, setQuantity] = useState(1);
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
+  const [service, setService] = useState('');
+  const [kuriarService, setKuriarService] = useState('');
 
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
@@ -73,41 +75,45 @@ const Buy = () => {
         <h1 className="text-5xl pt-5 font-extrabold ml-28">Buy Books</h1>
         <div className="flex justify-center gap-x-20">
           {/* Show Data */}
-          <div className="mt-10 bg-white w-[600px] p-5 rounded-lg shadow-2xl">
+          <div className="mt-10 bg-white w-[600px] h-[700px] p-5 rounded-lg shadow-2xl text-end  ">
             <div className="text-2xl ">
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Product Name</p>
-                <span className="w-2/3">: {books?.name}</span>
+                <p className="font-bold w-1/3">Product Name :</p>
+                <span className="w-2/3"> {books?.name}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Name</p>
-                <span className="w-2/3">: {users?.displayName}</span>
+                <p className="font-bold w-1/3">Name : </p>
+                <span className="w-2/3 "> {users?.displayName}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Email</p>
-                <span className="w-2/3">: {users?.email}</span>
+                <p className="font-bold w-1/3">Email : </p>
+                <span className="w-2/3"> {users?.email}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Phone</p>
-                <span className="w-2/3">: {phone}</span>
+                <p className="font-bold w-1/3">Phone : </p>
+                <span className="w-2/3"> {phone}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Date</p>
-                <span className="w-2/3">: {date}</span>
+                <p className="font-bold w-1/3">Date :</p>
+                <span className="w-2/3"> {date}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Quantity</p>
-                <span className="w-2/3">: {quantity}</span>
+                <p className="font-bold w-1/3">Quantity :</p>
+                <span className="w-2/3"> {quantity}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Price</p>
-                <span className="w-2/3">: {books?.price}</span>
+                <p className="font-bold w-1/3">Price :</p>
+                <span className="w-2/3"> {books?.price}</span>
+              </div>
+              <hr className="my-1 ml-5" />
+              <div className="flex items-baseline justify-between mt-1">
+                <p className="font-bold w-1/3">Total Price :</p>
+                <span className="w-2/3"> {totalPrice}</span>
               </div>
               <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Total Price</p>
-                <span className="w-2/3">: {totalPrice}</span>
+                <p className="font-bold w-1/3">Service :</p>
+                <span className="w-2/3"> {service}</span>
               </div>
-              <hr />
             </div>
           </div>
           {/* Input data */}
@@ -214,6 +220,63 @@ const Buy = () => {
                 value={totalPrice}
                 className="input input-bordered text-center  bg-white w-full text-xl font-extrabold text-blue-700  hover:shadow-xl"
               />
+
+              <div className="my-2 bg-white p-3 rounded-lg text-xl">
+                <h1>Service</h1>
+                <div className="flex">
+                  <div className="form-control">
+                    <label className="label cursor-pointer">
+                      <input
+                        onClick={() => setService('Cash On')}
+                        type="radio"
+                        name="radio-10"
+                        className="radio checked:bg-red-500 mr-6"
+                        checked
+                      />
+                      <span className="label-text text-xl font-bold">
+                        Cash On
+                      </span>
+                    </label>
+                  </div>
+                  <div className="form-control ml-10">
+                    <label className="label cursor-pointer">
+                      <input
+                        onClick={() => setService('Courier ')}
+                        type="radio"
+                        name="radio-10"
+                        className="radio checked:bg-blue-500 mr-6"
+                        checked
+                      />
+                      <span className="label-text text-xl font-bold">
+                        Courier
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text">Red pill</span>
+                    <input
+                      type="radio"
+                      name="radio-10"
+                      className="radio checked:bg-red-500"
+                      checked
+                    />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text">Blue pill</span>
+                    <input
+                      type="radio"
+                      name="radio-10"
+                      className="radio checked:bg-blue-500"
+                      checked
+                    />
+                  </label>
+                </div> */}
+              </div>
 
               {quantity && phone && date ? (
                 <input
