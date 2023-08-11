@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import auth from '../../../../firebase.init';
+import Payment from './Payment';
 
 const Buy = () => {
   const [users] = useAuthState(auth);
@@ -13,7 +14,7 @@ const Buy = () => {
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
   const [service, setService] = useState('Cash On');
-  const [kuriarService, setKuriarService] = useState('');
+  const [courierService, setCourierService] = useState('');
 
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
@@ -222,7 +223,7 @@ const Buy = () => {
               />
 
               <div className="my-2 bg-white p-3 rounded-lg text-xl">
-                <h1>Service</h1>
+                <h1 className="text-xl font-extrabold pb-2">Delivery</h1>
                 <div className="flex">
                   <div className="form-control">
                     <label className="label cursor-pointer">
@@ -257,24 +258,65 @@ const Buy = () => {
                   <>
                     <div className="form-control">
                       <label className="label cursor-pointer">
-                        <span className="label-text">Red pill</span>
+                        <span className="label-text text-xl font-bold">
+                          {' '}
+                          Cash On
+                        </span>
                         <input
                           type="radio"
                           name="radio-10"
                           className="radio checked:bg-red-500"
                           checked
+                          onClick={() => setCourierService('Cash On')}
                         />
                       </label>
                     </div>
                     <div className="form-control">
                       <label className="label cursor-pointer">
-                        <span className="label-text">Blue pill</span>
+                        <span className="label-text text-xl font-bold">
+                          BKash
+                        </span>
                         <input
+                          htmlFor="my_modal_6"
                           type="radio"
                           name="radio-10"
                           className="radio checked:bg-blue-500"
+                          onClick={() => setCourierService('BKash')}
                         />
                       </label>
+                    </div>
+                  </>
+                )}
+
+                {/* BKash */}
+                {courierService === 'BKash' && (
+                  <>
+                    {' '}
+                    <div className="flex justify-end mt-4">
+                      <label
+                        clicked
+                        htmlFor="my_modal_8"
+                        className="btn text-white btn-secondary text-xl"
+                      >
+                        Pay Now
+                      </label>
+                    </div>
+                    {/* Put this part before </body> tag */}
+                    <input
+                      type="checkbox"
+                      id="my_modal_8"
+                      className="modal-toggle"
+                    />
+                    {/* <Payment /> */}
+                    <div className="modal">
+                      <div className="modal-box w-[700px]">
+                        <Payment />
+                        {/* <div className="modal-action">
+                          <label htmlFor="my_modal_8" className="btn">
+                            Close!
+                          </label>
+                        </div> */}
+                      </div>
                     </div>
                   </>
                 )}
