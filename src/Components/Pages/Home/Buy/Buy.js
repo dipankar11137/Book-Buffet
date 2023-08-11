@@ -56,6 +56,7 @@ const Buy = () => {
       serviceCharge,
       email: users?.email,
       name: users?.displayName,
+      payment,
     };
     console.log(updateData);
     const url = `http://localhost:5000/buyBooks`;
@@ -101,7 +102,7 @@ const Buy = () => {
           <div>
             <div
               ref={cardRef}
-              className="mt-10 bg-white w-[600px] h-[550px] p-5 rounded-lg shadow-2xl text-end  "
+              className="mt-10 bg-white w-[600px] h-[580px] p-5 rounded-lg shadow-2xl text-end  "
             >
               <h1 className="text-center text-4xl font-extrabold">
                 Book Buffet
