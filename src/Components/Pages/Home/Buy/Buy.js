@@ -102,6 +102,12 @@ const Buy = () => {
               ref={cardRef}
               className="mt-10 bg-white w-[600px] h-[550px] p-5 rounded-lg shadow-2xl text-end  "
             >
+              <h1 className="text-center text-4xl font-extrabold">
+                Book Buffet
+              </h1>
+              <h1 className="text-center">Dhaka , Bangladesh</h1>
+
+              <hr className="my-2" />
               <div className="text-2xl ">
                 <div className="flex items-baseline justify-between mt-1">
                   <p className="font-bold w-1/3">Product Name :</p>
