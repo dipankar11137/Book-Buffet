@@ -26,7 +26,7 @@ const Bucks = () => {
  const [payment, setPayment] = useState('Cash On');
  const handleCourier = () => {
    setService('Courier');
-   setServiceCharge(140);
+   //  setServiceCharge(140);
  };
 
  const totalPrice = bookingDay * books?.bPrice + serviceCharge;
@@ -419,6 +419,35 @@ const Bucks = () => {
                          onClick={() => setServiceProvider('S.R Travels')}
                        />
                      </label>
+                   </div>
+
+                   <div className="flex ">
+                     <div className="form-control">
+                       <label className="label cursor-pointer">
+                         <input
+                           onClick={() => setServiceCharge(40)}
+                           type="radio"
+                           name="radio-10"
+                           className="radio checked:bg-red-500 mr-6"
+                         />
+                         <span className="label-text text-red-500 text-lg font-bold">
+                           Dhaka 40
+                         </span>
+                       </label>
+                     </div>
+                     <div className="form-control ml-9">
+                       <label className="label cursor-pointer">
+                         <input
+                           onClick={() => setServiceCharge(140)}
+                           type="radio"
+                           name="radio-10"
+                           className="radio checked:bg-blue-500 mr-6"
+                         />
+                         <span className="label-text  text-red-500 text-lg font-bold">
+                           Out of Dhaka 140
+                         </span>
+                       </label>
+                     </div>
                    </div>
                  </>
                )}
