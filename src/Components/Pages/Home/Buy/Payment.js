@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Payment = ({ setPayment, setCourierService, setService }) => {
+const Payment = ({ setPayment, setCourierService, setService, totalPrice }) => {
   const { id } = useParams('');
   const [buyProduct, setBuyProduct] = useState({});
   useEffect(() => {
@@ -14,7 +14,6 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
   const [password, setPassword] = useState(false);
   const [passwordButton, setPasswordButton] = useState(false);
   const [vCode, setVCode] = useState(false);
-  const navigation = useNavigate();
 
   const handleNumber = () => {
     setPassword(true);
@@ -33,7 +32,6 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
   };
   const handleCancel = () => {
     toast.error('Payment Cancel');
-    navigation('/myItem');
   };
   return (
     <div className="flex justify-center ">
@@ -46,8 +44,8 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
           />
           <div className="mx-[50px] w-[400] h-[150px] shadow-black shadow-md mt-5 text-white text-xl pt-8 pl-4">
             <h1>Merchant : BOOKBUFFET.COM</h1>
-            <h1>Invoice No : {buyProduct?._id}</h1>
-            <h1>Amount : {buyProduct?.totalPrice}</h1>
+            <h1>Invoice No : Ac2354fr21A</h1>
+            <h1>Amount : {totalPrice} BDT</h1>
           </div>
           <div className="text-center text-white mt-10 text-xl">
             <div>
@@ -60,18 +58,37 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
               />
               {numberButton && (
                 <div className="flex justify-between mx-[150px] mt-3">
-                  <button
+                  {/* <button
                     onClick={handleNumber}
-                    className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
+                    className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 btn-xs"
                   >
                     Process
-                  </button>
-                  <button
+                  </button> */}
+
+                  <div className="modal-action">
+                    <label
+                      onClick={handleNumber}
+                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
+                    >
+                      Process
+                    </label>
+                  </div>
+                  <div className="modal-action">
+                    <label
+                      onClick={handleCancel}
+                      htmlFor="my_modal_8"
+                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
+                    >
+                      Cancel
+                    </label>
+                  </div>
+
+                  {/* <button
                     onClick={handleCancel}
                     className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
                   >
                     Cancel
-                  </button>
+                  </button> */}
                 </div>
               )}
             </div>
@@ -85,18 +102,23 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
                 />
                 {passwordButton && (
                   <div className="flex justify-between mx-[150px] mt-3">
-                    <button
-                      onClick={handlePasswordButton}
-                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
-                    >
-                      Process
-                    </button>
-                    <button
-                      onClick={handleCancel}
-                      className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800"
-                    >
-                      Cancel
-                    </button>
+                    <div className="modal-action">
+                      <label
+                        onClick={handlePasswordButton}
+                        className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
+                      >
+                        Process
+                      </label>
+                    </div>
+                    <div className="modal-action">
+                      <label
+                        onClick={handleCancel}
+                        htmlFor="my_modal_8"
+                        className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
+                      >
+                        Cancel
+                      </label>
+                    </div>
                   </div>
                 )}
               </div>
@@ -131,6 +153,7 @@ const Payment = ({ setPayment, setCourierService, setService }) => {
                   </div>
                   <div className="modal-action">
                     <label
+                      onClick={handleCancel}
                       htmlFor="my_modal_8"
                       className="bg-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 cursor-pointer"
                     >

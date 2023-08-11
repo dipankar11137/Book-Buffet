@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { FaArrowDown } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import Payment from './Payment';
@@ -13,9 +14,16 @@ const Buy = () => {
   const [quantity, setQuantity] = useState(1);
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
-  const [service, setService] = useState('Cash On');
+  const [address, setAddress] = useState('');
+  const [service, setService] = useState('Office');
+  const [serviceCharge, setServiceCharge] = useState(0);
+  const [serviceProvider, setServiceProvider] = useState('');
   const [courierService, setCourierService] = useState('');
-  const [payment, setPayment] = useState('Unpaid');
+  const [payment, setPayment] = useState('Cash On');
+  const handleCourier = () => {
+    setService('Courier');
+    setServiceCharge(140);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
@@ -23,7 +31,7 @@ const Buy = () => {
       .then(data => setBooks(data));
   }, [id]);
 
-  const totalPrice = quantity * books?.price;
+  const totalPrice = quantity * books?.price + serviceCharge;
   const {
     register,
     formState: { errors },
@@ -42,6 +50,8 @@ const Buy = () => {
       totalPrice,
       phone,
       date,
+      address,
+      serviceCharge,
       email: users?.email,
       name: users?.displayName,
     };
@@ -69,59 +79,79 @@ const Buy = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100%',
-        height: '100vp',
+        height: '1150px',
       }}
       className="flex justify-center h-screen bg-slate-700"
     >
       <div>
-        <h1 className="text-5xl pt-5 font-extrabold ml-28">Buy Books</h1>
+        <h1 className="text-5xl pt-5 font-extrabold ml-28 text-center">
+          Buy Books
+        </h1>
         <div className="flex justify-center gap-x-20">
           {/* Show Data */}
-          <div className="mt-10 bg-white w-[600px] h-[700px] p-5 rounded-lg shadow-2xl text-end  ">
-            <div className="text-2xl ">
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Product Name :</p>
-                <span className="w-2/3"> {books?.name}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Name : </p>
-                <span className="w-2/3 "> {users?.displayName}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Email : </p>
-                <span className="w-2/3"> {users?.email}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Phone : </p>
-                <span className="w-2/3"> {phone}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Date :</p>
-                <span className="w-2/3"> {date}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Quantity :</p>
-                <span className="w-2/3"> {quantity}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Price :</p>
-                <span className="w-2/3"> {books?.price}</span>
-              </div>
-              <hr className="my-1 ml-5" />
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Total Price :</p>
-                <span className="w-2/3"> {totalPrice}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Service :</p>
-                <span className="w-2/3"> {service}</span>
-              </div>
-              <div className="flex items-baseline justify-between mt-1">
-                <p className="font-bold w-1/3">Payment :</p>
-                <span className="w-2/3"> {payment}</span>
+          <div>
+            <div className="mt-10 bg-white w-[600px] h-[550px] p-5 rounded-lg shadow-2xl text-end  ">
+              <div className="text-2xl ">
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Product Name :</p>
+                  <span className="w-2/3"> {books?.name}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Name : </p>
+                  <span className="w-2/3 "> {users?.displayName}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Email : </p>
+                  <span className="w-2/3"> {users?.email}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Phone : </p>
+                  <span className="w-2/3"> {phone}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Date :</p>
+                  <span className="w-2/3"> {date}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Quantity :</p>
+                  <span className="w-2/3"> {quantity}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Price :</p>
+                  <span className="w-2/3"> {books?.price}</span>
+                </div>
+                <hr className="my-1 ml-5" />
+
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Service :</p>
+                  <span className="w-2/3"> {serviceProvider || service}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Service Charge :</p>
+                  <span className="w-2/3"> {serviceCharge}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Payment :</p>
+                  <span className="w-2/3"> {payment}</span>
+                </div>
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Address :</p>
+                  <span className="w-2/3"> {address}</span>
+                </div>
+                <hr className="my-1 ml-5" />
+                <div className="flex items-baseline justify-between mt-1">
+                  <p className="font-bold w-1/3">Total Price :</p>
+                  <span className="w-2/3"> {totalPrice}</span>
+                </div>
               </div>
             </div>
+            <div className="mt-5 flex justify-center">
+              <button className="btn  shadow-2xl shadow-black text-white text-xl">
+                Download Pdf <FaArrowDown className="ml-3 animate-bounce" />
+              </button>
+            </div>
           </div>
+
           {/* Input data */}
           <div
             style={{
@@ -155,15 +185,16 @@ const Buy = () => {
               </label>
 
               <textarea
+                onChange={e => setAddress(e.target.value)}
                 type="text"
                 placeholder="Your Address"
                 className="input input-bordered text-xl pt-1 bg-white w-full  h-20 hover:shadow-xl"
-                {...register('address', {
-                  required: {
-                    value: true,
-                    message: 'Address is Required',
-                  },
-                })}
+                // {...register('address', {
+                //   required: {
+                //     value: true,
+                //     message: 'Address is Required',
+                //   },
+                // })}
               />
               <label className="label">
                 {errors.address?.type === 'required' && (
@@ -237,17 +268,16 @@ const Buy = () => {
                         type="radio"
                         name="radio-10"
                         className="radio checked:bg-red-500 mr-6"
-                        checked
                       />
                       <span className="label-text text-xl font-bold">
                         Cash On
                       </span>
                     </label>
                   </div>
-                  <div className="form-control ml-10">
+                  <div className="form-control ml-9">
                     <label className="label cursor-pointer">
                       <input
-                        onClick={() => setService('Courier')}
+                        onClick={handleCourier}
                         type="radio"
                         name="radio-10"
                         className="radio checked:bg-blue-500 mr-6"
@@ -265,14 +295,44 @@ const Buy = () => {
                       <label className="label cursor-pointer">
                         <span className="label-text text-xl font-bold">
                           {' '}
+                          Sundarban
+                        </span>
+                        <input
+                          type="radio"
+                          name="radio-7"
+                          className="radio checked:bg-blue-500"
+                          onClick={() => setServiceProvider('Sundarban')}
+                        />
+                      </label>
+                    </div>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text text-xl font-bold">
+                          S.R Travels
+                        </span>
+                        <input
+                          type="radio"
+                          name="radio-7"
+                          className="radio checked:bg-blue-500"
+                          onClick={() => setServiceProvider('S.R Travels')}
+                        />
+                      </label>
+                    </div>
+                  </>
+                )}
+                {serviceProvider && (
+                  <div className="p-4 bg-lime-200 rounded-lg mt-5">
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text text-xl font-bold">
+                          {' '}
                           Cash On
                         </span>
                         <input
                           type="radio"
-                          name="radio-10"
+                          name="radio-8"
                           className="radio checked:bg-red-500"
-                          checked
-                          onClick={() => setCourierService('Cash On')}
+                          onClick={() => setPayment('Cash On')}
                         />
                       </label>
                     </div>
@@ -282,15 +342,14 @@ const Buy = () => {
                           BKash
                         </span>
                         <input
-                          htmlFor="my_modal_6"
                           type="radio"
-                          name="radio-10"
+                          name="radio-8"
                           className="radio checked:bg-blue-500"
                           onClick={() => setCourierService('BKash')}
                         />
                       </label>
                     </div>
-                  </>
+                  </div>
                 )}
 
                 {/* BKash */}
@@ -299,7 +358,6 @@ const Buy = () => {
                     {' '}
                     <div className="flex justify-end mt-4">
                       <label
-                        clicked
                         htmlFor="my_modal_8"
                         className="btn text-white btn-secondary text-xl"
                       >
@@ -319,6 +377,7 @@ const Buy = () => {
                           setPayment={setPayment}
                           setCourierService={setCourierService}
                           setService={setService}
+                          totalPrice={totalPrice}
                         />
                         {/* <div className="modal-action">
                           <label htmlFor="my_modal_8" className="btn">
