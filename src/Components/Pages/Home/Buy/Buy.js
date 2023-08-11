@@ -15,6 +15,7 @@ const Buy = () => {
   const [date, setDate] = useState('');
   const [service, setService] = useState('Cash On');
   const [courierService, setCourierService] = useState('');
+  const [payment, setPayment] = useState('Unpaid');
 
   useEffect(() => {
     fetch(`http://localhost:5000/book/${id}`)
@@ -114,6 +115,10 @@ const Buy = () => {
               <div className="flex items-baseline justify-between mt-1">
                 <p className="font-bold w-1/3">Service :</p>
                 <span className="w-2/3"> {service}</span>
+              </div>
+              <div className="flex items-baseline justify-between mt-1">
+                <p className="font-bold w-1/3">Payment :</p>
+                <span className="w-2/3"> {payment}</span>
               </div>
             </div>
           </div>
@@ -310,7 +315,11 @@ const Buy = () => {
                     {/* <Payment /> */}
                     <div className="modal">
                       <div className="modal-box w-[700px]">
-                        <Payment />
+                        <Payment
+                          setPayment={setPayment}
+                          setCourierService={setCourierService}
+                          setService={setService}
+                        />
                         {/* <div className="modal-action">
                           <label htmlFor="my_modal_8" className="btn">
                             Close!

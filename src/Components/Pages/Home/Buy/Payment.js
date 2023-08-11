@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Payment = () => {
+const Payment = ({ setPayment, setCourierService, setService }) => {
   const { id } = useParams('');
   const [buyProduct, setBuyProduct] = useState({});
   useEffect(() => {
@@ -26,6 +26,9 @@ const Payment = () => {
     setVCode(true);
   };
   const handleVCode = () => {
+    setPayment('Paid');
+    setService(false);
+    setCourierService(false);
     toast.success('Payment Successfully');
   };
   const handleCancel = () => {
