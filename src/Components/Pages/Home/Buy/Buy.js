@@ -12,7 +12,7 @@ const Buy = () => {
   const [quantity, setQuantity] = useState(1);
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
-  const [service, setService] = useState('');
+  const [service, setService] = useState('Cash On');
   const [kuriarService, setKuriarService] = useState('');
 
   useEffect(() => {
@@ -241,11 +241,10 @@ const Buy = () => {
                   <div className="form-control ml-10">
                     <label className="label cursor-pointer">
                       <input
-                        onClick={() => setService('Courier ')}
+                        onClick={() => setService('Courier')}
                         type="radio"
                         name="radio-10"
                         className="radio checked:bg-blue-500 mr-6"
-                        checked
                       />
                       <span className="label-text text-xl font-bold">
                         Courier
@@ -254,28 +253,31 @@ const Buy = () => {
                   </div>
                 </div>
 
-                {/* <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text">Red pill</span>
-                    <input
-                      type="radio"
-                      name="radio-10"
-                      className="radio checked:bg-red-500"
-                      checked
-                    />
-                  </label>
-                </div>
-                <div className="form-control">
-                  <label className="label cursor-pointer">
-                    <span className="label-text">Blue pill</span>
-                    <input
-                      type="radio"
-                      name="radio-10"
-                      className="radio checked:bg-blue-500"
-                      checked
-                    />
-                  </label>
-                </div> */}
+                {service === 'Courier' && (
+                  <>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text">Red pill</span>
+                        <input
+                          type="radio"
+                          name="radio-10"
+                          className="radio checked:bg-red-500"
+                          checked
+                        />
+                      </label>
+                    </div>
+                    <div className="form-control">
+                      <label className="label cursor-pointer">
+                        <span className="label-text">Blue pill</span>
+                        <input
+                          type="radio"
+                          name="radio-10"
+                          className="radio checked:bg-blue-500"
+                        />
+                      </label>
+                    </div>
+                  </>
+                )}
               </div>
 
               {quantity && phone && date ? (
