@@ -1,21 +1,21 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import CreateAccount from "./Components/Login/CreateAccount";
-import Login from "./Components/Login/Login";
-import Footer from "./Components/Share/Footer";
-import Navbar from "./Components/Share/Navbar";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import NotFound from "./Components/Share/NotFound";
-import Home from "./Components/Pages/Home/Home/Home";
-import RequireAuth from "./Components/Login/RequireAUth";
-import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import Login from './Components/Login/Login';
+import RequireAuth from './Components/Login/RequireAUth';
 import AddItem from "./Components/Pages/Dashboard/AddItem/AddItem";
-import ManageItems from "./Components/Pages/Dashboard/ManageItem/ManageItems";
-import Buy from "./Components/Pages/Home/Buy/Buy";
+import BookBooks from './Components/Pages/Dashboard/BookBooks/BookBooks';
+import BuyBooks from './Components/Pages/Dashboard/BuyBooks/BuyBooks';
+import Dashboard from './Components/Pages/Dashboard/Dashboard';
+import ManageItems from './Components/Pages/Dashboard/ManageItem/ManageItems';
 import Bucks from "./Components/Pages/Home/Bucks/Bucks";
-import BookBooks from "./Components/Pages/Dashboard/BookBooks/BookBooks";
-import BuyBooks from "./Components/Pages/Dashboard/BuyBooks/BuyBooks";
+import Buy from './Components/Pages/Home/Buy/Buy';
+import Home from './Components/Pages/Home/Home/Home';
+import SentContact from './Components/Pages/Home/HomeSection/Contact/SentContact';
+import Navbar from './Components/Share/Navbar';
+import NotFound from './Components/Share/NotFound';
 
 function App() {
   return (
@@ -38,6 +38,14 @@ function App() {
           element={
             <RequireAuth>
               <Bucks />
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/sentContact"
+          element={
+            <RequireAuth>
+              <SentContact />
             </RequireAuth>
           }
         ></Route>

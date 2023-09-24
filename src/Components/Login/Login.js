@@ -7,9 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 // import axios from "axios";
-import Loading from "../Share/Loading";
-import login from "../../Images/Login/login.jpg";
-import { toast } from "react-toastify";
+import Loading from '../Share/Loading';
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
