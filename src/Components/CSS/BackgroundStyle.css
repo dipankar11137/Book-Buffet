@@ -1,5 +1,5 @@
 button {
-  --c: #940b56;
+  --c: #2A4AFF;
 
   box-shadow: 0 0 0 0.1em inset var(--c);
   --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -17,7 +17,7 @@ button:hover {
   color: #fff;
 }
 button:active {
-  box-shadow: 0 0 9e9Q inset rgba(145, 12, 12, 0.6);
+  box-shadow: 0 0 9e9Q inset #2A4AFF;
   background-color: var(--c);
   color: #fff;
 }
