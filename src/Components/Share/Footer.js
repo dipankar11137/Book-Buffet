@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 dark:bg-gray-800 dark:border-gray-700  text-white  rounded">
+    <footer className="footer footer-center p-10 bg-gray-800 border-gray-700  text-white  rounded">
       <div>
         <h1 className="text-xl text-lime-300">
           Note: To add to the Secondhand Book (Book Buffet), take a photo of

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const SentContact = () => {
   const {
@@ -9,7 +10,8 @@ const SentContact = () => {
     reset,
   } = useForm();
   const onSubmit = data => {
-    console.log(data);
+    toast.success('Successfully Sent');
+    reset();
   };
   return (
     <div>

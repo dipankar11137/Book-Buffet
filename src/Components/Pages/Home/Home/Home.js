@@ -3,6 +3,7 @@ import Footer from '../../../Share/Footer';
 import Test from '../../Test/Test';
 import Banner from '../Banner/Banner';
 import Contact from '../HomeSection/Contact/Contact';
+import SentContact from '../HomeSection/Contact/SentContact';
 import FirstSection from '../HomeSection/FirstSection/FirstSection';
 import IslamicBooks from '../HomeSection/IslamicBook/IslamicBooks';
 import Novels from '../HomeSection/Novel/Novels';
@@ -19,6 +20,7 @@ const Home = () => {
       <IslamicBooks />
       <OurBooks />
       <RecommendedBooks />
+      <SentContact />
       <Contact />
       <Footer />
     </div>
