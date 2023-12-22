@@ -9,6 +9,7 @@ import AddItem from "./Components/Pages/Dashboard/AddItem/AddItem";
 import BookBooks from './Components/Pages/Dashboard/BookBooks/BookBooks';
 import BuyBooks from './Components/Pages/Dashboard/BuyBooks/BuyBooks';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
+import Deliveres from './Components/Pages/Dashboard/Delivered/Deliveres';
 import ManageItems from './Components/Pages/Dashboard/ManageItem/ManageItems';
 import Bucks from "./Components/Pages/Home/Bucks/Bucks";
 import Buy from './Components/Pages/Home/Buy/Buy';
@@ -63,6 +64,7 @@ function App() {
         >
           <Route index element={<AddItem />} />
           <Route path="manageItem" element={<ManageItems />} />
+          <Route path="delivered" element={<Deliveres />} />
           <Route path="bookBooks" element={<BookBooks />} />
           <Route path="buyBooks" element={<BuyBooks />} />
         </Route>

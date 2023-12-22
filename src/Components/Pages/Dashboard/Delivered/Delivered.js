@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const BuyBook = ({ product, index, handleDelete }) => {
+const Delivered = ({ index, product }) => {
   return (
     <tr>
       <th>{index}</th>
@@ -16,20 +16,10 @@ const BuyBook = ({ product, index, handleDelete }) => {
       <td>{product?.quantity}</td>
       <td>{product?.bookInfo?.price}</td>
       <td>{product?.totalPrice}</td>
-      <td>{product?.address}</td>
       <td>{product?.phone}</td>
-      <td>{product?.date}</td>
-      <td>
-        {' '}
-        <button
-          onClick={() => handleDelete(product?._id, product)}
-          className="btn-sm rounded-lg bg-red-800 text-white uppercase"
-        >
-          Delivered
-        </button>
-      </td>
+      <td>{product?.time}</td>
     </tr>
   );
 };
 
-export default BuyBook;
+export default Delivered;

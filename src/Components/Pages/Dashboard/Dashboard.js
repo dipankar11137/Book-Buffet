@@ -20,11 +20,11 @@ const Dashboard = () => {
             <label for="dashboard-sidebar" className="drawer-overlay "></label>
             <ul className="menu p-4 overflow-y-auto w-56 bg-slate-900  text-white">
               <li
-                onClick={() => setSelectedButton("Button 1")}
+                onClick={() => setSelectedButton('Button 1')}
                 className={
-                  selectedButton === "Button 1"
-                    ? "bg-white text-black rounded-lg"
-                    : ""
+                  selectedButton === 'Button 1'
+                    ? 'bg-white text-black rounded-lg'
+                    : ''
                 }
               >
                 <Link
@@ -35,11 +35,11 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li
-                onClick={() => setSelectedButton("Button 2")}
+                onClick={() => setSelectedButton('Button 2')}
                 className={
-                  selectedButton === "Button 2"
-                    ? "bg-white text-black rounded-lg mt-3"
-                    : ""
+                  selectedButton === 'Button 2'
+                    ? 'bg-white text-black rounded-lg mt-3'
+                    : ''
                 }
               >
                 <Link
@@ -50,11 +50,11 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li
-                onClick={() => setSelectedButton("Button 3")}
+                onClick={() => setSelectedButton('Button 3')}
                 className={
-                  selectedButton === "Button 3"
-                    ? "bg-white text-black rounded-lg mt-3"
-                    : ""
+                  selectedButton === 'Button 3'
+                    ? 'bg-white text-black rounded-lg mt-3'
+                    : ''
                 }
               >
                 <Link
@@ -65,11 +65,11 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li
-                onClick={() => setSelectedButton("Button 4")}
+                onClick={() => setSelectedButton('Button 4')}
                 className={
-                  selectedButton === "Button 4"
-                    ? "bg-white text-black rounded-lg mt-3"
-                    : ""
+                  selectedButton === 'Button 4'
+                    ? 'bg-white text-black rounded-lg mt-3'
+                    : ''
                 }
               >
                 <Link
@@ -77,6 +77,21 @@ const Dashboard = () => {
                   className="font-bold text-xl hover:text-orange-600"
                 >
                   Manage Books
+                </Link>
+              </li>
+              <li
+                onClick={() => setSelectedButton('Button 5')}
+                className={
+                  selectedButton === 'Button 5'
+                    ? 'bg-white text-black rounded-lg mt-3'
+                    : ''
+                }
+              >
+                <Link
+                  to="/dashboard/delivered"
+                  className="font-bold text-xl hover:text-orange-600"
+                >
+                  Delivered
                 </Link>
               </li>
             </ul>
