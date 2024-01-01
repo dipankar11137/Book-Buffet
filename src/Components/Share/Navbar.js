@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../Images/logo/bokk .png';
 import auth from '../../firebase.init';
+import SearchBar from '../Pages/Home/HomeSection/SeatchBar/SearchBar';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -76,6 +77,9 @@ const Navbar = () => {
       </div>
       {/* Image */}
       <div className="navbar-end">
+        <div className="mr-5">
+          <SearchBar />
+        </div>
         {user ? (
           <div className="dropdown dropdown-end  mr-5">
             <label tabindex="0" className="btn btn-ghost btn-circle avatar">

@@ -5,7 +5,7 @@ const Novel = ({ product, handleBuy, handleBook }) => {
   const { _id, name, img, price, status, date, writerName } = product;
   return (
     <div
-      style={{ height: "500px", width: "296px" }}
+      style={{ height: '500px', width: '296px' }}
       class="container bg-white shadow-inner"
     >
       <img className="image " src={img} alt="" />
@@ -17,12 +17,12 @@ const Novel = ({ product, handleBuy, handleBook }) => {
         <p>{date}</p>
       </div>
       <div class="middle  ">
-        {status === "Old" ? (
+        {status === 'Old' ? (
           <button
             onClick={() => handleBook(_id)}
-            className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   "
+            className="w-full bg-slate-100  p-3 rounded-lg  uppercase font-semibold   border-2 "
           >
-            {" "}
+            {' '}
             Borrow
           </button>
         ) : (
@@ -30,7 +30,7 @@ const Novel = ({ product, handleBuy, handleBook }) => {
         )}
         <button
           onClick={() => handleBuy(_id)}
-          className="w-full bg-slate-200 p-3 rounded-lg  uppercase font-bold mt-4"
+          className="w-full bg-slate-200 p-3 rounded-lg  uppercase font-bold mt-4 border-2 "
         >
           Buy Book
         </button>
