@@ -48,7 +48,7 @@ const BuyBooks = () => {
   };
 
   const handleDelete = (id, product) => {
-    const changeData = { ...product, time: formattedDateTime };
+    const changeData = { ...product, time: formattedDateTime, from: 'Buy' };
     const proceed = window.confirm('Are You Sure ?');
     if (proceed) {
       const url = `http://localhost:5000/delivered`;

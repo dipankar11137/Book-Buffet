@@ -1,29 +1,64 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
-import BookBook from "./BookBook";
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import BookBook from './BookBook';
 
 const BookBooks = () => {
   const [products, setProducts] = useState([]);
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []); // Run effect once on mount
+
+  const options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    // timeZoneName: 'short',
+  };
+  const formattedDateTime = currentDateTime.toLocaleString(undefined, options);
 
   useEffect(() => {
-    fetch("http://localhost:5000/bookingsBook")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    fetch('http://localhost:5000/bookingsBook')
+      .then(res => res.json())
+      .then(data => setProducts(data));
   }, [products]);
-  const handleDelete = (id) => {
-    const proceed = window.confirm("Are You Sure ?");
+
+  const handleDelivered = id => {
+    const url = `http://localhost:5000/bookingsBook/${id}`;
+    fetch(url, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(data => {
+        const remaining = products.filter(product => product._id !== id);
+        setProducts(remaining);
+        toast.success('Delivered Successfully ');
+      });
+  };
+
+  const handleDelete = (id, product) => {
+    const changeData = { ...product, time: formattedDateTime, from: 'Borrow' };
+    const proceed = window.confirm('Are You Sure ?');
     if (proceed) {
-      const url = `http://localhost:5000/bookingsBook/${id}`;
+      const url = `http://localhost:5000/delivered`;
       fetch(url, {
-        method: "DELETE",
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(changeData),
       })
-        .then((res) => res.json())
-        .then((data) => {
-          const remaining = products.filter((product) => product._id !== id);
-          setProducts(remaining);
-          toast.success("Delivered Successfully ");
+        .then(res => res.json())
+        .then(result => {
+          handleDelivered(id);
         });
     }
   };

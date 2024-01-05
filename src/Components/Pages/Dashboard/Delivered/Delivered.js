@@ -11,7 +11,12 @@ const Delivered = ({ index, product }) => {
           alt=""
         />
       </th>
-      <td>{product?.bookInfo?.name}</td>
+      <td>
+        <div>
+          {product?.bookInfo?.name} <br />
+          <p className="text-red-500"> {product?.from}</p>
+        </div>
+      </td>
       <td>{product?.bookInfo?.booksCategory}</td>
       <td>{product?.quantity}</td>
       <td>{product?.bookInfo?.price}</td>

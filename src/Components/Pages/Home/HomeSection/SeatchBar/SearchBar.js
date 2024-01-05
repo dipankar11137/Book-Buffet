@@ -12,7 +12,7 @@ const SearchBar = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
-    fetch('https://interective-dashboard-server.onrender.com/allProduct')
+    fetch('http://localhost:5000/books')
       .then(res => res.json())
       .then(data => {
         setCards(data);

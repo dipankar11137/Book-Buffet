@@ -21,9 +21,9 @@ const BookBook = ({ product, index, handleDelete }) => {
       <td>{product?.nid}</td>
       <td>{product?.date}</td>
       <td>
-        {" "}
+        {' '}
         <button
-          onClick={() => handleDelete(product?._id)}
+          onClick={() => handleDelete(product?._id, product)}
           className="btn-sm rounded-lg bg-red-800 text-white uppercase"
         >
           delivered
