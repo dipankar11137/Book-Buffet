@@ -4,13 +4,22 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
   const { _id, name, img, price, description, date, status } = product;
   return (
     <div
-      style={{ height: "500px", width: "350px" }}
+      style={{ height: '500px', width: '350px' }}
       className=" bg-slate-100 rounded-xl shadow-2xl hover:bg-pink-100 hover:shadow-inner"
     >
       <div className="indicator">
-        <span className="indicator-item badge badge-danger">{status}</span>
+        {status === 'New' ? (
+          <span className="indicator-item badge  bg-red-600 text-xl text-white">
+            {status}
+          </span>
+        ) : (
+          <span className="indicator-item badge bg-green-800 border-green-800 text-xl  text-white">
+            {status}
+          </span>
+        )}
+
         <img
-          style={{ width: "350px" }}
+          style={{ width: '350px' }}
           className="h-72  rounded-lg"
           src={img}
           alt=""
@@ -23,7 +32,7 @@ const IslamicBook = ({ product, handleBuy, handleBook }) => {
         <p>{description}</p>
       </div>
 
-      {status === "Old" ? (
+      {status === 'Old' ? (
         <div className="flex justify-between">
           <button
             onClick={() => handleBook(_id)}

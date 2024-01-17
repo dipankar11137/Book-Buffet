@@ -79,6 +79,7 @@ const BookBooks = () => {
               <th>Phone</th>
               <th>Nid</th>
               <th>Date</th>
+              <th>Payment</th>
               <th>delivered</th>
             </tr>
           </thead>

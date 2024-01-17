@@ -81,6 +81,7 @@ const BuyBooks = () => {
               <th>Address</th>
               <th>Phone</th>
               <th>Date</th>
+              <th>Payment</th>
               <th>delivered</th>
             </tr>
           </thead>

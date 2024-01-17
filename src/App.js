@@ -11,6 +11,7 @@ import BuyBooks from './Components/Pages/Dashboard/BuyBooks/BuyBooks';
 import Dashboard from './Components/Pages/Dashboard/Dashboard';
 import Deliveres from './Components/Pages/Dashboard/Delivered/Deliveres';
 import ManageItems from './Components/Pages/Dashboard/ManageItem/ManageItems';
+import Payment from './Components/Pages/Dashboard/Payment/Payment';
 import Bucks from "./Components/Pages/Home/Bucks/Bucks";
 import Buy from './Components/Pages/Home/Buy/Buy';
 import Home from './Components/Pages/Home/Home/Home';
@@ -52,6 +53,14 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
+        <Route
+          path="/payment/:id"
+          element={
+            <RequireAuth>
+              <Payment />
+            </RequireAuth>
+          }
+        ></Route>
 
         {/* Dashboard start */}
         <Route
